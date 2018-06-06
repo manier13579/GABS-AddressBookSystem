@@ -1,0 +1,24 @@
+#报错页自定义
+ErrorDocument 403 /err/403.php
+ErrorDocument 404 /err/404.php
+ErrorDocument 500 /err/500.php
+
+#禁止列出目录
+Options -Indexes
+
+#入口文件定义
+DirectoryIndex index.php index.html
+
+#URL重定向
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+#开始重写
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^manage$ /view/manage.php [L]
+
+RewriteRule ^manage/([a-zA-Z0-9\-]*)$ /view/manage/$1.php [L]
+
+</IfModule>

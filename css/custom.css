@@ -1,0 +1,28 @@
+.footer-contact{
+  position:relative;
+  padding: 30px; 
+  line-height: 22px; 
+  background-color: #393D49; 
+  color: #fff; 
+  font-weight: 300;
+}
+.footer-contact span{
+  display:block;
+  box-sizing:border-box;
+  margin-bottom:10px;
+}
+.footer-contact .contact2{
+  color:#bbb;
+}
+.footer-contact .logo{
+  position:absolute;
+  right:30px;
+  top:-30px;
+}
+.footer-contact .logo span{
+  font-size:50px;
+  color:#eee;
+}
+.layui-layer-page .layui-layer-content {
+  overflow: hidden !important;
+}

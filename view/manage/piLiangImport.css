@@ -1,0 +1,40 @@
+.layui-body{
+  margin-top:50px;
+}
+
+.layui-form-selectup dl {
+    top: auto;
+    bottom: auto;
+}
+.layui-table, .layui-table-view {
+    margin: 0px 0;
+}
+.layui-table-cell .layui-form-checkbox[lay-skin="primary"] {
+    top: 1px;
+}
+.laytable-cell-1-7{
+  padding:0px;
+}
+.layui-form-switch {
+  height: 18px;
+  line-height: 18px;
+  padding: 0 4px;
+}
+.layui-form-switch i {
+  width: 14px;
+  height: 14px;
+  top: 2px;
+}
+
+.btn-wrap{
+  width:100%;
+}
+.area{
+  display:block;
+  width:100%;
+  text-align:center;
+  padding:150px 0px 150px 0px;
+  border:1px solid #ddd;
+  font-size:20px;
+  color:#888;
+}

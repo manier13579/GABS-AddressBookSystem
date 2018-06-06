@@ -1,0 +1,25 @@
+body{
+  overflow:hidden;
+  font-size:13px;
+  overflow:hidden;
+}
+.wrap{
+  box-sizing:border-box;
+  width:380px;
+  
+}
+.zu-wrap{
+  padding:20px;
+  height:141px;
+  
+  border-bottom:0px;
+}
+.layui-btn-group{
+  width:100%;
+}
+.layui-btn{
+  width:50%;
+}
+select{
+  width:80px;
+}

@@ -1,0 +1,49 @@
+body{
+  overflow:hidden;
+  font-size:13px;
+}
+.wrap{
+  box-sizing:border-box;
+  padding:20px 20px;
+  width:540px;
+}
+.zu{
+  margin-left:25px;
+  color:#333;
+  font-weight:400;
+  position:relative;
+  
+}
+
+.zu span{
+  padding:3px 10px;
+  box-sizing:border-box;
+  display:block;
+  cursor:pointer;
+}
+.zu span:hover{
+  color:#0F88EB;
+}
+.zu-wrap{
+  border:1px solid #ddd ;
+  height:431px;
+  padding:15px 0px;
+  overflow:auto;
+  border-bottom:0px;
+}
+.level1{
+  color:#0F88EB;
+  font-weight:800;
+}
+.zu .layui-icon{
+  position:absolute;
+  left:-23px;
+  top:-1px;
+  color:#888;
+}
+.layui-btn-group{
+  width:100%;
+}
+.layui-btn{
+  width:100%;
+}

@@ -1,0 +1,53 @@
+.layui-body{
+  margin-top:50px;
+}
+
+.layui-form-selectup dl {
+    top: auto;
+    bottom: auto;
+}
+.layui-table, .layui-table-view {
+    margin: 0px 0;
+}
+.layui-table-cell .layui-form-checkbox[lay-skin="primary"] {
+    top: 1px;
+}
+.laytable-cell-1-7{
+  padding:0px;
+}
+.layui-form-switch {
+  height: 18px;
+  line-height: 18px;
+  padding: 0 4px;
+}
+.layui-form-switch i {
+  width: 14px;
+  height: 14px;
+  top: 2px;
+}
+#save{
+  margin-right:15px;
+}
+.zu-wrap{
+  width:100%;
+  height:100%;
+  border:0px;
+  background:none;
+  color:#666;
+}
+.zu-wrap:hover{
+  color:#1E9FFF;
+  cursor:pointer;
+}
+#refresh{
+  position:absolute;
+  right:0px;
+  padding:0px 9px;
+}
+#refresh span{
+  font-size:21px;
+  color:#888;
+}
+.btn-wrap{
+  width:100%;
+}

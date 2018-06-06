@@ -1,0 +1,10 @@
+.wrap{
+  padding:8px 15px 0px 15px;
+}
+body{
+  background: #eaedf1;
+}
+.layui-table td,.layui-table th{
+  font-size:12px;
+  color:#555;
+}

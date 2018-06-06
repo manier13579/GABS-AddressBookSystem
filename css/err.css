@@ -1,0 +1,14 @@
+.err-wrap {
+  padding-top:200px;
+
+}
+.err-en{
+  font-size:30px;
+  color:#888;
+  text-align:center;
+}
+.err-cn{
+  padding-top:15px;
+  text-align:center;
+  color:#555;
+}

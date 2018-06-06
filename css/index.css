@@ -1,0 +1,161 @@
+.wrap{
+  position:relative;
+  padding:15px;
+}
+body{
+background: #eaedf1;
+}
+.area1{
+  position:relative;
+  padding: 1px 15px 15px 15px;
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+.layui-tab {
+  margin: 0 !important;
+}
+.search-wrap{
+  border-style:none !important;
+}
+.search-button{
+  width:60px !important;
+  border-width:1px !important;
+}
+.search-button span{
+  display:block;
+  font-size:21px;
+  color:#888;
+  margin-top:1px;
+}
+.search-input{
+  margin-left:60px !important;
+}
+.layui-btn-group{
+  width: 100% !important;
+}
+.layui-btn {
+  padding: 0px !important;
+  width: 50% !important;
+}
+.area2{
+  margin-top:15px;
+  padding: 1px 15px 15px 15px;
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+.layui-table{
+  moz-user-select: -moz-none;
+  -moz-user-select: none;
+  -o-user-select:none;
+  -khtml-user-select:none; /* you could also put this in a class */
+  -webkit-user-select:none;/* and add the CSS class here instead */
+  -ms-user-select:none;
+  user-select:none;/**禁止选中文字*/ 
+}
+.icon-blue{
+  color:#1E9FFF;
+}
+.icon-green{
+  color:#5FB878;
+}
+.icon-gray{
+  color:#ccc;
+}
+.icon-copy{
+  position:absolute;
+  right:3px;
+  top:6px;
+  opacity:0.5;
+  font-size:20px;
+  cursor:pointer;
+}
+.icon-copy:hover{
+  color:#1E9FFF;
+}
+.icon-email{
+  position:absolute;
+  right:28px;
+  top:6px;
+  opacity:0.5;
+  font-size:18px;
+  cursor:pointer;
+}
+.icon-email:hover{
+  color:#1E9FFF;
+}
+.filter-button{
+  position:absolute;
+  background-color:#fff;
+  opacity:0.7;
+  color:#333;
+  right:2px;
+  top:1px;
+  height:36px;
+  width:80px;
+  cursor:pointer;
+  text-align:center;
+  line-height:36px;
+  border-left:1px solid #ddd;
+  transition: all .3s;
+  -webkit-transition: all .3s;
+}
+.filter-button:hover{
+  color:#009688;
+}
+.filter-button span{
+  padding-right:5px;
+}
+.footer-line{
+  color: #aebdc9;
+  font-size: 12px;
+  line-height: 21px;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  cursor:pointer;
+  margin-top:20px;
+  width:180px;
+}
+.layui-table-body{
+  overflow:hidden;
+}
+.namehref{
+  cursor:pointer;
+}
+.namehref:hover{
+  color:#1E9FFF;
+}
+.jindutiao{
+  position:absolute;
+  top:0px;
+  width:100%;
+  left:0px;
+}
+.list-count{
+  position: absolute;
+  background-color: #fff;
+  opacity: 0.7;
+  color: #333;
+  right: 90px;
+  top: 1px;
+  height: 36px;
+  width: 125px;
+  text-align: center;
+  line-height: 36px;
+  transition: all .3s;
+  -webkit-transition: all .3s;
+}
+.laytable-cell-1-GUID{display:none !important;}
+.laytable-cell-2-GUID{display:none !important;}
+.laytable-cell-3-GUID{display:none !important;}
+.laytable-cell-4-GUID{display:none !important;}
+.laytable-cell-5-GUID{display:none !important;}
+.laytable-cell-6-GUID{display:none !important;}
+.laytable-cell-7-GUID{display:none !important;}
+.laytable-cell-8-GUID{display:none !important;}
+.laytable-cell-9-GUID{display:none !important;}
+.laytable-cell-10-GUID{display:none !important;}
+
+[class*='-GUID']{
+  display:none !important;
+}

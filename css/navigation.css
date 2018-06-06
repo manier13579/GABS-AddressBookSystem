@@ -1,0 +1,70 @@
+.wrap{
+  position:relative;
+  padding:15px;
+}
+body{
+  background: #eaedf1;
+}
+.area1{
+  padding: 15;
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+
+}
+.area2{
+  padding: 0px 10px 15px 10px;
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+
+}
+.layui-tab {
+  margin: 0 !important;
+}
+.area-title{
+  text-align:center;
+  padding-bottom:12px;
+  color:#259;
+  font-weight:700;
+  font-size:15px;
+  line-height:18px;
+  border-bottom: 1px solid #e2e2e2;
+  font-family:-apple-system, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  text-shadow: 0 1px 1px rgba(0,0,0,.12);
+  cursor:pointer;
+  box-shadow: 0 0.6px 0 #eee
+}
+.area-content{
+  position:relative;
+  padding-top:5px;
+  min-height:620px;
+  line-height:18px;
+}
+
+.area-function{
+  line-height:18px;
+  padding:3px 3px;
+  font-size:12px;
+  color:#555;
+  cursor:pointer;
+  height:20px;
+  white-space:nowrap;
+}
+.area-function:hover{
+  color:#000;
+  text-shadow: 0 1px 1px rgba(0,0,0,.12);
+}
+.area-point{
+  float:left;
+  width: 7px;
+  height: 7px;
+  margin:6px 8px 0px 0px;
+  background-color: #ccc;
+}
+.area-title2{
+  color:#999;
+  font-size:12px;
+  font-weight:600;
+  padding:8px 3px;
+  border-bottom:1px dashed #ddd;
+  margin-bottom:8px;
+}

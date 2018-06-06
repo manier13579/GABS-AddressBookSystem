@@ -10,7 +10,8 @@
 ****
 
 ## 项目预览
-    待更新
+    首页预览
+![](https://github.com/manier13579/GABS-AddressBookSystem/tree/master/images/readme1.png)  
     
 ## 项目特色
     待更新

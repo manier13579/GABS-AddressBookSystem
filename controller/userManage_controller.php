@@ -97,7 +97,7 @@ case 'add':
   $group = substr(explode('[',$group)[1], 0, -1);//字符串截取为组id
   
   //添加到数据库
-  $sql1 = "INSERT INTO TXL_USER (USER_ID,USER_NAME,PASS,USER_TYPE,EMAIL,JOIN_DATE) VALUES ('".$userid."','".$username."','".$password."','".$permission."','".$email."',SYSDATE)";
+  $sql1 = "INSERT INTO TXL_USER (USER_ID,USER_NAME,PASS,USER_TYPE,EMAIL,JOIN_DATE) VALUES ('".$userid."','".$username."','".$password."','".$permission."','".$email."',now())";
   $con=DbOpen();
   DbSelect($con,$sql1);
   DbClose($con);

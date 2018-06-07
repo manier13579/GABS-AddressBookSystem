@@ -11,10 +11,11 @@
 
 ## 项目预览
 ### 首页预览
-![首页预览](https://github.com/manier13579/GABS-AddressBookSystem/raw/master/images/readme1.png)  
+![首页预览1](https://github.com/manier13579/GABS-AddressBookSystem/raw/master/images/readme1.png)  
+![首页预览2](https://github.com/manier13579/GABS-AddressBookSystem/raw/master/images/readme2.png)  
 ### 普通用户后台预览
-![普通用户后台预览](https://github.com/manier13579/GABS-AddressBookSystem/raw/master/images/readme2.png)  
-
+![普通用户后台预览](https://github.com/manier13579/GABS-AddressBookSystem/raw/master/images/readme3.png)  
+![普通用户后台预览](https://github.com/manier13579/GABS-AddressBookSystem/raw/master/images/readme4.png)  
 ## 项目特色
     待更新
     

@@ -5,9 +5,8 @@ php:
   - 7.0
   
 before_install:
-  - mysql -u root -e 'CREATE DATABASE gabs;use gabs;set names utf8;source sql/db.sql;'
-  - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('root') where User='root'; update user set plugin='mysql_native_password';grant all privileges on *.* to 'root'@'localhost' identified by 'root' with grant option;FLUSH PRIVILEGES;"
-  
+  - sudo mysql -e "use mysql;update user set authentication_string=PASSWORD('root') where User='root'; update user set plugin='mysql_native_password';grant all privileges on *.* to 'root'@'localhost' identified by 'root' with grant option;CREATE DATABASE gabs;use gabs;set names utf8;source sql/db.sql;FLUSH PRIVILEGES;"
+
 script:
   - phpunit                  #default test command
   - phpunit -c phpunit.xml   #custom test command to make sure CLI args don't break the test

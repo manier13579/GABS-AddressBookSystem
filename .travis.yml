@@ -9,8 +9,6 @@ before_install:
   - mysql -u root gabs < sql/db.sql
   - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('root') where User='root'; update user set plugin='mysql_native_password';grant all privileges on *.* to 'root'@'localhost' identified by 'root' with grant option;FLUSH PRIVILEGES;"
   
-before_script: composer require phpunit/phpunit
-  
 script:
   - phpunit                  #default test command
   - phpunit -c phpunit.xml   #custom test command to make sure CLI args don't break the test

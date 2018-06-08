@@ -1,6 +1,6 @@
 <?php
 require_once dirname(__FILE__).'/../src/controller/class/signin_class.php';
-require_once 'PHPUnit/Autoload.php';
+
 class signinTest extends PHPUnit_Framework_TestCase {
   public function testLoginSuccess() {
     $expected = 'admin';

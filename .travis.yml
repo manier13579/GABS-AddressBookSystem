@@ -8,8 +8,7 @@ before_install:
   - sudo mysql -e "use mysql;update user set authentication_string=PASSWORD('root') where User='root'; update user set plugin='mysql_native_password';grant all privileges on *.* to 'root'@'localhost' identified by 'root' with grant option;FLUSH PRIVILEGES;"
 
 before_script:
-  - mysql -e 'CREATE DATABASE gabs;'
-  - mysql gabs < sql/db.sql
+  - sudo mysql -e 'CREATE DATABASE gabs;use gabs;set names utf8;source sql/db.sql;'
   
 script:
   - phpunit                  #default test command

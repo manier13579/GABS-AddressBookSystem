@@ -14,9 +14,9 @@ case 'init':
   
   $con=DbOpen();
   $sql = "SELECT a.*,b.ZU_ID,c.ZU_NAME FROM TXL_USER a
-          LEFT JOIN TXL_USER_ZU b
+          LEFT JOIN txl_user_zu b
           ON a.USER_ID = b.USER_ID
-          LEFT JOIN TXL_ZU c
+          LEFT JOIN txl_zu c
           ON b.ZU_ID = c.ZU_ID
           ORDER BY a.USER_ID ASC";
   $result = DbSelect($con,$sql);
@@ -57,13 +57,13 @@ case 'edit':
   $group = substr(explode('[',$group)[1], 0, -1);//字符串截取为组id
   
   //添加到数据库
-  $sql1 = "UPDATE TXL_USER SET USER_NAME = '".$username."',PASS = '".$password."',USER_TYPE = '".$permission."',EMAIL = '".$email."' WHERE USER_ID = '".$userid."'";
+  $sql1 = "UPDATE txl_user SET USER_NAME = '".$username."',PASS = '".$password."',USER_TYPE = '".$permission."',EMAIL = '".$email."' WHERE USER_ID = '".$userid."'";
   $con=DbOpen();
   DbSelect($con,$sql1);
   DbClose($con);
 
   //添加到数据库用户组表
-  $sql2 = "UPDATE TXL_USER_ZU SET ZU_ID = '".$group."' WHERE USER_ID = '".$userid."'";
+  $sql2 = "UPDATE txl_user_zu SET ZU_ID = '".$group."' WHERE USER_ID = '".$userid."'";
   $con=DbOpen();
   DbSelect($con,$sql2);
   DbClose($con);
@@ -76,7 +76,7 @@ case 'delete':
   $userid = $_POST['userid'];  //获取userid
 
   //删除符合zuid的数据
-  $sql1 = "DELETE FROM TXL_USER WHERE USER_ID = '".$userid."'";
+  $sql1 = "DELETE FROM txl_user WHERE USER_ID = '".$userid."'";
   $con=DbOpen();
   DbSelect($con,$sql1);
   DbClose($con);
@@ -97,13 +97,13 @@ case 'add':
   $group = substr(explode('[',$group)[1], 0, -1);//字符串截取为组id
   
   //添加到数据库
-  $sql1 = "INSERT INTO TXL_USER (USER_ID,USER_NAME,PASS,USER_TYPE,EMAIL,JOIN_DATE) VALUES ('".$userid."','".$username."','".$password."','".$permission."','".$email."',now())";
+  $sql1 = "INSERT INTO txl_user (USER_ID,USER_NAME,PASS,USER_TYPE,EMAIL,JOIN_DATE) VALUES ('".$userid."','".$username."','".$password."','".$permission."','".$email."',now())";
   $con=DbOpen();
   DbSelect($con,$sql1);
   DbClose($con);
   
   //添加到数据库用户组表
-  $sql2 = "INSERT INTO TXL_USER_ZU (USER_ID,ZU_ID) VALUES ('".$userid."','".$group."')";
+  $sql2 = "INSERT INTO txl_user_zu (USER_ID,ZU_ID) VALUES ('".$userid."','".$group."')";
   $con=DbOpen();
   DbSelect($con,$sql2);
   DbClose($con);

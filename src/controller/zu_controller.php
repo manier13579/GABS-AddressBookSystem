@@ -9,7 +9,7 @@ switch ($action){
 //读取组织结构
 case 'read':
   $con=DbOpen();
-  $sql = "SELECT ZU_ID,PARENT_ID,ZU_NAME FROM TXL_ZU ORDER BY ZU_ID ASC";
+  $sql = "SELECT ZU_ID,PARENT_ID,ZU_NAME FROM txl_zu ORDER BY ZU_ID ASC";
   $result = DbSelect($con,$sql);
   
   $i = 0;

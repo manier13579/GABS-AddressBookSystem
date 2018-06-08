@@ -14,17 +14,17 @@ case 'init':
   
   $con=DbOpen();
   $sql1 = "
-    SELECT a.GUID,a.XING_MING,a.XIANG_MU,a.NEI_RONG,b.USER_ID,b.QUAN_XIAN FROM TXL_JICHUSHUJU a
-    LEFT JOIN TXL_GUID_QUANXIAN b
+    SELECT a.GUID,a.XING_MING,a.XIANG_MU,a.NEI_RONG,b.USER_ID,b.QUAN_XIAN FROM txl_jichushuju a
+    LEFT JOIN txl_guid_quanxian b
     ON a.GUID=b.GUID
     WHERE a.GUID IN (
-      SELECT GUID FROM TXL_GUID_QUANXIAN 
+      SELECT GUID FROM txl_guid_quanxian 
       WHERE (  /*本用户可以看到的所有GUID加筛选*/
         USER_ID = '".$_SESSION['USER_ID']."' OR /*本用户创建的数据*/
         USER_ID = '' OR /*无人管理的数据*/
         (
           (
-            (SELECT ZU_ID FROM TXL_USER_ZU WHERE USER_ID = '".$_SESSION['USER_ID']."') LIKE concat(ZU_ID,'%') AND ZU_ID IS NOT NULL OR  /*本用户所在组被共享的数据*/
+            (SELECT ZU_ID FROM txl_user_zu WHERE USER_ID = '".$_SESSION['USER_ID']."') LIKE concat(ZU_ID,'%') AND ZU_ID IS NOT NULL OR  /*本用户所在组被共享的数据*/
             ZU_ID = 0  /*系统内所有人可见的数据*/
           )
           AND QUAN_XIAN > 0
@@ -115,7 +115,7 @@ case 'TianJia':
   $GUID = str_replace('}','',$GUID);
   
   //将通讯录数据插入到通讯录数据表
-  $sql1 = "INSERT INTO TXL_JICHUSHUJU VALUES ";
+  $sql1 = "INSERT INTO txl_jichushuju VALUES ";
   foreach ($formRes as $key => $value) {
     if($key!='姓名'&&$key!='权限'&&$key!='组'){
       $sql1 = $sql1."('".$GUID."','".$formRes['姓名']."','".$key."','".jiami($value)."'),";
@@ -130,7 +130,7 @@ case 'TianJia':
   if($formRes['组']==''){
     $formRes['权限']='0';
   }
-  $sql2 = "INSERT INTO TXL_GUID_QUANXIAN (GUID,USER_ID,QUAN_XIAN,ZU_ID) VALUES ('".$GUID."','".$_SESSION['USER_ID']."','".$formRes['权限']."','".$formRes['组']."') ";
+  $sql2 = "INSERT INTO txl_guid_quanxian (GUID,USER_ID,QUAN_XIAN,ZU_ID) VALUES ('".$GUID."','".$_SESSION['USER_ID']."','".$formRes['权限']."','".$formRes['组']."') ";
   $con=DbOpen();
   DbSelect($con,$sql2);
   DbClose($con);
@@ -145,8 +145,8 @@ case 'XiangXi':
   $con=DbOpen();
   //通过GUID查权限
   $sql1 = "
-    SELECT a.USER_ID,a.QUAN_XIAN,a.ZU_ID,b.ZU_NAME FROM TXL_GUID_QUANXIAN a 
-    LEFT JOIN TXL_ZU b
+    SELECT a.USER_ID,a.QUAN_XIAN,a.ZU_ID,b.ZU_NAME FROM txl_guid_quanxian a 
+    LEFT JOIN txl_zu b
     ON a.ZU_ID = b.ZU_ID
     WHERE GUID = '".$GUID."'
   ";
@@ -159,7 +159,7 @@ case 'XiangXi':
   $res->ZU_NAME = $row['ZU_NAME'];
   
   //通过GUID查数据并返回
-  $sql2 = "SELECT * FROM TXL_JICHUSHUJU WHERE GUID = '".$GUID."'";
+  $sql2 = "SELECT * FROM txl_jichushuju WHERE GUID = '".$GUID."'";
   $result2 = DbSelect($con,$sql2);
   
   $i = 0;
@@ -205,13 +205,13 @@ case 'BaoCun':
   $GUID = $_POST['GUID'];  //获取GUID
   
   //删除GUID之前的数据
-  $sql1 = "DELETE FROM TXL_JICHUSHUJU WHERE GUID = '".$GUID."'";
+  $sql1 = "DELETE FROM txl_jichushuju WHERE GUID = '".$GUID."'";
   $con=DbOpen();
   DbSelect($con,$sql1);
   DbClose($con);
   
   //将通讯录数据插入到通讯录数据表
-  $sql2 = "INSERT INTO TXL_JICHUSHUJU VALUES ";
+  $sql2 = "INSERT INTO txl_jichushuju VALUES ";
   foreach ($formRes as $key => $value) {
     
     if($key!='姓名'&&$key!='权限'&&$key!='组'){
@@ -228,7 +228,7 @@ case 'BaoCun':
   if($formRes['组']==''){
     $formRes['权限']='0';
   }
-  $sql3 = "UPDATE TXL_GUID_QUANXIAN SET QUAN_XIAN = '".$formRes['权限']."' , ZU_ID = '".$formRes['组']."' WHERE GUID = '".$GUID."'";
+  $sql3 = "UPDATE txl_guid_quanxian SET QUAN_XIAN = '".$formRes['权限']."' , ZU_ID = '".$formRes['组']."' WHERE GUID = '".$GUID."'";
   $con=DbOpen();
   DbSelect($con,$sql3);
   
@@ -241,13 +241,13 @@ case 'ShanChu':
   $GUID = $_POST['GUID'];  //获取GUID
   
   //删除符合GUID的数据
-  $sql1 = "DELETE FROM TXL_JICHUSHUJU WHERE GUID = '".$GUID."'";
+  $sql1 = "DELETE FROM txl_jichushuju WHERE GUID = '".$GUID."'";
   $con=DbOpen();
   DbSelect($con,$sql1);
   DbClose($con);
   
   //删除符合GUID的数据
-  $sql2 = "DELETE FROM TXL_GUID_QUANXIAN WHERE GUID = '".$GUID."'";
+  $sql2 = "DELETE FROM txl_guid_quanxian WHERE GUID = '".$GUID."'";
   $con=DbOpen();
   DbSelect($con,$sql2);
   

@@ -14,13 +14,13 @@ case 'init':
   
   $con=DbOpen();
   $sql1 = "
-    SELECT a.GUID,a.XING_MING,a.XIANG_MU,a.NEI_RONG,b.USER_ID,b.QUAN_XIAN,b.ZU_ID,c.ZU_NAME FROM TXL_JICHUSHUJU a
-    LEFT JOIN TXL_GUID_QUANXIAN b
+    SELECT a.GUID,a.XING_MING,a.XIANG_MU,a.NEI_RONG,b.USER_ID,b.QUAN_XIAN,b.ZU_ID,c.ZU_NAME FROM txl_jichushuju a
+    LEFT JOIN txl_guid_quanxian b
     ON a.GUID=b.GUID
     LEFT JOIN TXL_ZU c
     ON b.ZU_ID=c.ZU_ID
     WHERE a.GUID IN (  
-      SELECT GUID FROM TXL_GUID_QUANXIAN 
+      SELECT GUID FROM txl_guid_quanxian 
       WHERE USER_ID = '".$_SESSION['USER_ID']."' 
     )
     ORDER BY a.GUID ASC
@@ -102,34 +102,34 @@ case 'save':
     
     $sql1 = "
       /*拼音*/
-      insert into TXL_JICHUSHUJU (GUID,XING_MING,XIANG_MU,NEI_RONG) VALUES ('".$tableData[$i]['GUID']."','".$tableData[$i]['XING_MING']."','拼音','".jiami($tableData[$i]['PIN_YIN'])."') 
+      insert into txl_jichushuju (GUID,XING_MING,XIANG_MU,NEI_RONG) VALUES ('".$tableData[$i]['GUID']."','".$tableData[$i]['XING_MING']."','拼音','".jiami($tableData[$i]['PIN_YIN'])."') 
       ON DUPLICATE KEY UPDATE NEI_RONG = '".jiami($tableData[$i]['PIN_YIN'])."';
       
       /*公司*/
-      insert into TXL_JICHUSHUJU (GUID,XING_MING,XIANG_MU,NEI_RONG) VALUES ('".$tableData[$i]['GUID']."','".$tableData[$i]['XING_MING']."','公司','".jiami($tableData[$i]['GONG_SI'])."')
+      insert into txl_jichushuju (GUID,XING_MING,XIANG_MU,NEI_RONG) VALUES ('".$tableData[$i]['GUID']."','".$tableData[$i]['XING_MING']."','公司','".jiami($tableData[$i]['GONG_SI'])."')
       ON DUPLICATE KEY UPDATE NEI_RONG = '".jiami($tableData[$i]['GONG_SI'])."';
       
       /*手机*/
-      insert into TXL_JICHUSHUJU (GUID,XING_MING,XIANG_MU,NEI_RONG) VALUES ('".$tableData[$i]['GUID']."','".$tableData[$i]['XING_MING']."','手机','".jiami($tableData[$i]['SHOU_JI'])."')
+      insert into txl_jichushuju (GUID,XING_MING,XIANG_MU,NEI_RONG) VALUES ('".$tableData[$i]['GUID']."','".$tableData[$i]['XING_MING']."','手机','".jiami($tableData[$i]['SHOU_JI'])."')
       ON DUPLICATE KEY UPDATE NEI_RONG = '".jiami($tableData[$i]['SHOU_JI'])."';
       
       /*座机*/
-      insert into TXL_JICHUSHUJU (GUID,XING_MING,XIANG_MU,NEI_RONG) VALUES ('".$tableData[$i]['GUID']."','".$tableData[$i]['XING_MING']."','座机','".jiami($tableData[$i]['ZUO_JI'])."')
+      insert into txl_jichushuju (GUID,XING_MING,XIANG_MU,NEI_RONG) VALUES ('".$tableData[$i]['GUID']."','".$tableData[$i]['XING_MING']."','座机','".jiami($tableData[$i]['ZUO_JI'])."')
       ON DUPLICATE KEY UPDATE NEI_RONG = '".jiami($tableData[$i]['ZUO_JI'])."';
       
       /*邮箱*/
-      insert into TXL_JICHUSHUJU (GUID,XING_MING,XIANG_MU,NEI_RONG) VALUES ('".$tableData[$i]['GUID']."','".$tableData[$i]['XING_MING']."','邮箱','".jiami($tableData[$i]['YOU_XIANG'])."')
+      insert into txl_jichushuju (GUID,XING_MING,XIANG_MU,NEI_RONG) VALUES ('".$tableData[$i]['GUID']."','".$tableData[$i]['XING_MING']."','邮箱','".jiami($tableData[$i]['YOU_XIANG'])."')
       ON DUPLICATE KEY UPDATE NEI_RONG = '".jiami($tableData[$i]['YOU_XIANG'])."';
       
       /*备注*/
-      insert into TXL_JICHUSHUJU (GUID,XING_MING,XIANG_MU,NEI_RONG) VALUES ('".$tableData[$i]['GUID']."','".$tableData[$i]['XING_MING']."','备注','".jiami($tableData[$i]['BEI_ZHU'])."')
+      insert into txl_jichushuju (GUID,XING_MING,XIANG_MU,NEI_RONG) VALUES ('".$tableData[$i]['GUID']."','".$tableData[$i]['XING_MING']."','备注','".jiami($tableData[$i]['BEI_ZHU'])."')
       ON DUPLICATE KEY UPDATE NEI_RONG = '".jiami($tableData[$i]['BEI_ZHU'])."';
       
       /*权限表更新(组、权限)*/
-      UPDATE TXL_GUID_QUANXIAN SET QUAN_XIAN = '".$tableData[$i]['QUAN_XIAN']."',ZU_ID = '".$tableData[$i]['ZU_ID']."' WHERE GUID = '".$tableData[$i]['GUID']."';
+      UPDATE txl_guid_quanxian SET QUAN_XIAN = '".$tableData[$i]['QUAN_XIAN']."',ZU_ID = '".$tableData[$i]['ZU_ID']."' WHERE GUID = '".$tableData[$i]['GUID']."';
       
       /*姓名*/
-      UPDATE TXL_JICHUSHUJU SET XING_MING = '".$tableData[$i]['XING_MING']."' WHERE GUID = '".$tableData[$i]['GUID']."';
+      UPDATE txl_jichushuju SET XING_MING = '".$tableData[$i]['XING_MING']."' WHERE GUID = '".$tableData[$i]['GUID']."';
     ";
     $con=DbOpen();
     DbMultiSelect($con,$sql1);
@@ -145,13 +145,13 @@ case 'delete':
   $GUID = implode('\',\'', $guidArr);  //guid数组转字符串
 
   //删除符合GUID的数据
-  $sql1 = "DELETE FROM TXL_JICHUSHUJU WHERE GUID IN ('".$GUID."')";
+  $sql1 = "DELETE FROM txl_jichushuju WHERE GUID IN ('".$GUID."')";
   $con=DbOpen();
   DbSelect($con,$sql1);
   DbClose($con);
   
   //删除权限数据
-  $sql2 = "DELETE FROM TXL_GUID_QUANXIAN WHERE GUID IN ('".$GUID."')";
+  $sql2 = "DELETE FROM txl_guid_quanxian WHERE GUID IN ('".$GUID."')";
   $con=DbOpen();
   DbSelect($con,$sql2);
   
@@ -174,7 +174,7 @@ case 'zu':
   }
   
   //修改符合GUID的数据
-  $sql1 = "UPDATE TXL_GUID_QUANXIAN SET ZU_ID = '".$ZU_ID."' WHERE GUID IN ('".$GUID."')";
+  $sql1 = "UPDATE txl_guid_quanxian SET ZU_ID = '".$ZU_ID."' WHERE GUID IN ('".$GUID."')";
   $con=DbOpen();
   DbSelect($con,$sql1);
   DbClose($con);
@@ -191,7 +191,7 @@ case 'quanxian':
   $GUID = implode('\',\'', $guidArr);  //guid数组转字符串
   
   //修改符合GUID的数据
-  $sql1 = "UPDATE TXL_GUID_QUANXIAN SET QUAN_XIAN = '".$QUAN_XIAN."' WHERE GUID IN ('".$GUID."')";
+  $sql1 = "UPDATE txl_guid_quanxian SET QUAN_XIAN = '".$QUAN_XIAN."' WHERE GUID IN ('".$GUID."')";
   $con=DbOpen();
   DbSelect($con,$sql1);
   DbClose($con);
@@ -206,7 +206,7 @@ case 'export':
   $GUID = implode('\',\'', $guidArr);  //guid数组转字符串
 
   //删除符合GUID的数据
-  $sql1 = "select * FROM TXL_JICHUSHUJU WHERE GUID IN ('".$GUID."') ORDER BY GUID ASC";
+  $sql1 = "select * FROM txl_jichushuju WHERE GUID IN ('".$GUID."') ORDER BY GUID ASC";
   $con=DbOpen();
   $result = DbSelect($con,$sql1);
 

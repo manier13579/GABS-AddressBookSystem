@@ -7,7 +7,7 @@ class signin_class{
     //连接数据库
     $con=DbOpen();
 
-    $sql = "SELECT * FROM TXL_USER WHERE USER_ID = ? AND PASS= ?";
+    $sql = "SELECT * FROM txl_user WHERE USER_ID = ? AND PASS= ?";
     
     if($stmt = $con->prepare($sql)) {
       $stmt->bind_param("ss", $userid, $password);
@@ -18,7 +18,7 @@ class signin_class{
       if($row and $row['FAILED_LOGINS'] < $pass_err_count){
         //登录成功
         $ip = $_SERVER["REMOTE_ADDR"];
-        $sql = "update TXL_USER set FAILED_LOGINS = 0, LAST_LOGIN = now(), LAST_IP = '".$ip."' where USER_ID = '".$userid."'";
+        $sql = "update txl_user set FAILED_LOGINS = 0, LAST_LOGIN = now(), LAST_IP = '".$ip."' where USER_ID = '".$userid."'";
         DbSelect($con,$sql);
         
         session_start();
@@ -29,13 +29,13 @@ class signin_class{
         return $_SESSION['USER_ID'];
       }else{
         //登录失败
-        $sql = "select FAILED_LOGINS from TXL_USER where USER_ID = '".$userid."'";
+        $sql = "select FAILED_LOGINS from txl_user where USER_ID = '".$userid."'";
         $result = DbSelect($con,$sql);
         
         $row = mysqli_fetch_array($result);
         if($row['FAILED_LOGINS'] < $pass_err_count){
           return 'warning';
-          $sql = "update TXL_USER set FAILED_LOGINS = FAILED_LOGINS + 1 where USER_ID = '".$userid."'";
+          $sql = "update txl_user set FAILED_LOGINS = FAILED_LOGINS + 1 where USER_ID = '".$userid."'";
           DbSelect($con,$sql);
         }else{
           return 'err';

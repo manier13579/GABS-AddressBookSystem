@@ -13,7 +13,7 @@ case 'init':
   $responce->code = 0;
   
   $con=DbOpen();
-  $sql = "SELECT * FROM TXL_ZU WHERE ZU_ID <> 0 ORDER BY ZU_ID ASC";
+  $sql = "SELECT * FROM txl_zu WHERE ZU_ID <> 0 ORDER BY ZU_ID ASC";
   $result = DbSelect($con,$sql);
 
   $i = 0;
@@ -47,7 +47,7 @@ case 'save':
     if(!isset($tableData[$i]["ZU_NAME"])){break;echo 'not';}
     
     $sql2 = "
-      UPDATE TXL_ZU SET 
+      UPDATE txl_zu SET 
       PARENT_ID = '".$tableData[$i]["PARENT_ID"]."',
       ZU_NAME = '".$tableData[$i]["ZU_NAME"]."'
       WHERE ZU_ID = '".$tableData[$i]["ZU_ID"]."' 
@@ -65,7 +65,7 @@ case 'delete':
   $zuid = $_POST['zuid'];  //获取zuid
 
   //删除符合zuid的数据
-  $sql1 = "DELETE FROM TXL_ZU WHERE ZU_ID = '".$zuid."'";
+  $sql1 = "DELETE FROM txl_zu WHERE ZU_ID = '".$zuid."'";
   $con=DbOpen();
   DbSelect($con,$sql1);
   DbClose($con);
@@ -84,7 +84,7 @@ case 'add':
   if(!isset($zuid)){break;echo 'not';}
   
   //添加到数据库
-  $sql1 = "INSERT INTO TXL_ZU (ZU_ID,PARENT_ID,ZU_NAME) VALUES ('".$zuid."','".$parentid."','".$zuname."')";
+  $sql1 = "INSERT INTO txl_zu (ZU_ID,PARENT_ID,ZU_NAME) VALUES ('".$zuid."','".$parentid."','".$zuname."')";
   $con=DbOpen();
   DbSelect($con,$sql1);
   DbClose($con);

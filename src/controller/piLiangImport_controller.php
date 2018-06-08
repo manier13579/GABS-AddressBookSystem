@@ -24,7 +24,7 @@ case 'upload':
       $GUID = str_replace('}','',$GUID);
       
       $con=DbOpen();
-      $sql = "INSERT INTO TXL_JICHUSHUJU VALUES ";
+      $sql = "INSERT INTO txl_jichushuju VALUES ";
       foreach($roa[$i] as $key => $value) {
         if($key!='姓名'){
           $sql = $sql."('".$GUID."','".$roa[$i]['姓名']."','".$key."','".jiami($value)."'),";
@@ -32,7 +32,7 @@ case 'upload':
       }
       $sql = rtrim($sql, ",");
       //插入权限表为私有
-      $sql = $sql.";INSERT INTO TXL_GUID_QUANXIAN (GUID,USER_ID,QUAN_XIAN,ZU_ID) VALUES ('".$GUID."','".$_SESSION['USER_ID']."','0','');";
+      $sql = $sql.";INSERT INTO txl_guid_quanxian (GUID,USER_ID,QUAN_XIAN,ZU_ID) VALUES ('".$GUID."','".$_SESSION['USER_ID']."','0','');";
         
       DbMultiSelect($con,$sql);
       DbClose($con);

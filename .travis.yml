@@ -5,8 +5,9 @@ php:
   - 7.0
   
 before_script:
-  - mysql -u root -e 'CREATE DATABASE list3;'
-  - mysql -u root list3 < sql/db.sql
+  - mysql -u root -e 'CREATE DATABASE gabs;'
+  - mysql -u root gabs < sql/db.sql
+  - mysql -u root -p root
   
 script:
   - phpunit                  #default test command

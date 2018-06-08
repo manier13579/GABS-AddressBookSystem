@@ -5,7 +5,7 @@ php:
   - 7.0
   
 before_script:
-  - mysql -u root -e 'CREATE DATABASE gabs;'
+  - mysql -u root -e 'CREATE DATABASE gabs;update user set authentication_string=PASSWORD('root') where User='root';'
   - mysql -u root gabs < sql/db.sql
   - mysql -u root -p root root
   

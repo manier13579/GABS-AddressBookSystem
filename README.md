@@ -13,13 +13,13 @@
 
 ## 项目预览
 #### 首页预览
-![首页预览1](https://github.com/manier13579/GABS-AddressBookSystem/raw/master/images/readme1.png)  
-![首页预览2](https://github.com/manier13579/GABS-AddressBookSystem/raw/master/images/readme2.png)  
+![首页预览1](https://github.com/manier13579/GABS-AddressBookSystem/raw/master/src/images/readme1.png)  
+![首页预览2](https://github.com/manier13579/GABS-AddressBookSystem/raw/master/src/images/readme2.png)  
 #### 普通用户后台预览
-![普通用户后台预览1](https://github.com/manier13579/GABS-AddressBookSystem/raw/master/images/readme3.png)  
-![普通用户后台预览2](https://github.com/manier13579/GABS-AddressBookSystem/raw/master/images/readme4.png)  
+![普通用户后台预览1](https://github.com/manier13579/GABS-AddressBookSystem/raw/master/src/images/readme3.png)  
+![普通用户后台预览2](https://github.com/manier13579/GABS-AddressBookSystem/raw/master/src/images/readme4.png)  
 #### 管理员用户后台预览
-![管理员用户后台预览](https://github.com/manier13579/GABS-AddressBookSystem/raw/master/images/readme5.png)  
+![管理员用户后台预览](https://github.com/manier13579/GABS-AddressBookSystem/raw/master/src/images/readme5.png)  
 ## 项目特色
 * 简单易部署，只需要最基础的WAMP或LAMP环境
 * 前后端分离，前端尽量使用纯HTML+JS，通过AJAX与后端PHP接口交互，便于维护和技术升级。

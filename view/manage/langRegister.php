@@ -99,7 +99,7 @@ layui.use('form', function(){
       layer.msg('信息不完整！ | Form Not Complate！');
     }else{
       ajax = $.ajax({
-        url:rootpath+"/tools/lang.php",
+        url:rootpath+"/manage/langRegister",
         async:false,
         type: 'post',
         data: {YeMianMing,CN,EN,action},

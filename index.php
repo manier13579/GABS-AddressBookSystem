@@ -67,6 +67,10 @@ layui.use(['table', 'form','element'], function(){
   
   var timer = setInterval(function(){});
   function progressRandom(start,stop){
+    if($('.layui-progress-bar').css('width') == '100%'){
+      element.progress('jindutiao', '0%');
+    }
+    $('.jindutiao').show();
     clearInterval(timer);
     timer = setInterval(function(){
       start = start + Math.random()*10|0;
@@ -74,11 +78,14 @@ layui.use(['table', 'form','element'], function(){
         start = stop;
         clearInterval(timer);
       }
-      element.progress('jindutiao', start+'%');
-
+      if(start == 100){
+        element.progress('jindutiao', '100%');
+        $('.jindutiao').fadeOut(1500);
+      }else{
+        element.progress('jindutiao', start+'%');
+      }
     }, 10+Math.random()*100);
   }
-  progressRandom(0,20);
   //页面首次打开自动加载表格
   initTable('');
   
@@ -86,7 +93,7 @@ layui.use(['table', 'form','element'], function(){
   var table1Data;
   function initTable(name){
     action = 'init';
-    progressRandom(20,90);
+    progressRandom(0,90);
     table1 = table.render({
       elem:'#table1',
       height: 528, //容器高度
@@ -109,7 +116,7 @@ layui.use(['table', 'form','element'], function(){
       ]],
       done: function(res, curr, count){
         progressRandom(90,100);
-        $('.jindutiao').fadeOut(1500);
+        
         initLang('index',''+langNow+'');//初始化语言
         table1Data = res.data;
         //显示联系人数量

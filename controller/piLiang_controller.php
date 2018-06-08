@@ -23,7 +23,7 @@ case 'init':
       SELECT GUID FROM TXL_GUID_QUANXIAN 
       WHERE USER_ID = '".$_SESSION['USER_ID']."' 
     )
-    ORDER BY a.XING_MING ASC
+    ORDER BY a.GUID ASC
     
   ";
   $result = DbSelect($con,$sql1);
@@ -197,6 +197,52 @@ case 'quanxian':
   DbClose($con);
   
   echo 'ok';
+
+break;
+
+//批量导出事件
+case 'export':
+  $guidArr = $_POST['guidArr'];  //获取guid数组
+  $GUID = implode('\',\'', $guidArr);  //guid数组转字符串
+
+  //删除符合GUID的数据
+  $sql1 = "select * FROM TXL_JICHUSHUJU WHERE GUID IN ('".$GUID."') ORDER BY GUID ASC";
+  $con=DbOpen();
+  $result = DbSelect($con,$sql1);
+
+  $i = 0;
+  $res = [];
+  while ($row = mysqli_fetch_array($result)) {
+    $res[$i] = array (
+      'GUID' => $row['GUID'],
+      'XING_MING' => $row['XING_MING'],
+      'XIANG_MU' => $row['XIANG_MU'],
+      'NEI_RONG' => jiemi($row['NEI_RONG'])
+    );
+    $i++;
+  }
+  
+  $j = 0;
+  $data = [];
+  for($i=0;$i<count($res);$i++){
+
+    if($i>0&&$res[$i]['GUID']!=$res[$i-1]['GUID']){
+      $j++;
+    }
+    
+    $data[$j]['姓名'] = $res[$i]['XING_MING'];  //返回姓名
+    if($res[$i]['XIANG_MU']!='拼音'){//不返回拼音
+      $data[$j][$res[$i]['XIANG_MU']] = $res[$i]['NEI_RONG'];  //返回数据
+    }
+    
+    
+
+  }
+  $responce = new stdClass();
+  $responce ->data = $data;
+  echo json_encode($responce);
+  DbClose($con);
+
 
 break;
 }

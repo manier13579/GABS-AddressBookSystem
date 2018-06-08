@@ -6,6 +6,7 @@ require_once $_SERVER ['DOCUMENT_ROOT'].'/nav.php';
 require_once $_SERVER ['DOCUMENT_ROOT'].'/view.php';
 ?>
 <script src="<?php $_SERVER ['DOCUMENT_ROOT']?>/js/jquery.nicescroll.min.js"></script>
+<script src="<?php $_SERVER ['DOCUMENT_ROOT']?>/js/xlsx.full.min.js"></script>
 <link rel="stylesheet" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/view/<?php echo $view.'/'.$page.'.css';?>">
 
 <div class="layui-body">
@@ -26,6 +27,11 @@ require_once $_SERVER ['DOCUMENT_ROOT'].'/view.php';
               <button class="layui-btn" id="zu"><span lang="批量修改组"></span></button>
               <button class="layui-btn" id="quanxian"><span lang="批量修改权限"></span></button>
               <button class="layui-btn layui-btn-danger" id="del"><span lang="批量删除"></span></button>
+              <?php 
+                if($_SESSION['USER_TYPE']=='2'){
+                  echo '<button class="layui-btn layui-btn-warm" id="export"><span lang="批量导出"></span></button>';
+                }
+            ?>
             </div>
             <button class="layui-btn layui-btn-primary" id="refresh"><span class="iconfont">&#xe69c;</span></button>
           </div>
@@ -282,6 +288,62 @@ layui.use('table', function(){
   $('#refresh').click(function(){
     initTable('');
   });
+  
+  //批量导出按钮点击事件
+  $('#export').click(function(){
+    var checkStatus = table.checkStatus('table1')
+    ,data = checkStatus.data;
+    //console.log(data);
+    if(data.length==0){
+      layer.msg('请选择要导出的行 | No Line Selected');
+    }else{
+      guidArr = [],tishi = '';
+      for(i=0;i<data.length;i++){
+        tishi += data[i].XING_MING + ' , ';
+        guidArr.push(data[i].GUID);
+      }
+
+      action = 'export';
+      ajax = $.ajax({
+        url:rootpath+"/controller/piLiang_controller.php",
+        async:true,
+        type: 'post',
+        data: {action,guidArr},
+        beforeSend:function(){
+          loadingDiv('load');
+        },
+        success:function(res){
+          loadingDiv();
+          parent.layer.closeAll();
+          res = JSON.parse(res);
+          exportExcel(res['data']); //调用导出Excel函数
+        }
+      });
+
+    }
+  });
+  
+  //自定义简单的下载文件实现方式   
+  function saveAs(obj, fileName) {
+    var tmpa = document.createElement("a");  
+    tmpa.download = fileName || "下载";  
+    tmpa.href = URL.createObjectURL(obj); //绑定a标签  
+    tmpa.click(); //模拟点击实现下载  
+    setTimeout(function () { //延时释放  
+      URL.revokeObjectURL(obj); //用URL.revokeObjectURL()来释放这个object URL  
+    }, 100);  
+  }  
+  
+  function exportExcel(data){
+    var wopts = { bookType:'xlsx', bookSST:false, type:'array' };//这里的数据是用来定义导出的格式类型  
+    var wb = XLSX.utils.book_new();
+    console.log(data);
+    wb.SheetNames.push('Sheet1');
+    wb.Sheets['Sheet1'] = XLSX.utils.json_to_sheet(data);//通过json_to_sheet转成单页(Sheet)数据  
+
+    console.log(wb);
+    XLSX.writeFile(wb, 'ExportData.xlsx');  
+  }
   
 });
 

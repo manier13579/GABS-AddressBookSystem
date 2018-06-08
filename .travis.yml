@@ -7,7 +7,7 @@ php:
 before_script:
   - mysql -u root -e 'CREATE DATABASE gabs;'
   - mysql -u root gabs < sql/db.sql
-  - mysql -u root -p 'root'
+  - mysql -u root -p root root
   
 script:
   - phpunit                  #default test command

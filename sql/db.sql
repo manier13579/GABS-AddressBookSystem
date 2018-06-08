@@ -97,7 +97,7 @@ INSERT INTO `txl_zu` (`ZU_ID`, `PARENT_ID`, `ZU_NAME`) VALUES ('2', '0', 'B公�
 INSERT INTO `txl_zu` (`ZU_ID`, `PARENT_ID`, `ZU_NAME`) VALUES ('1001', '1', '技术部');
 INSERT INTO `txl_zu` (`ZU_ID`, `PARENT_ID`, `ZU_NAME`) VALUES ('1002', '1', '财务部');
 INSERT INTO `txl_zu` (`ZU_ID`, `PARENT_ID`, `ZU_NAME`) VALUES ('1001001', '1001', '研发组');
-
+INSERT INTO `txl_zu` (`ZU_ID`, `PARENT_ID`, `ZU_NAME`) VALUES ('1001002', '1001', '运维组');
 
 INSERT INTO `txl_yuyan` (`YE_MIAN_MING`, `YU_ZHONG`, `XU_HAO`, `WEN_ZI`) VALUES ('account', 'CN', '通讯录', '通讯录');
 INSERT INTO `txl_yuyan` (`YE_MIAN_MING`, `YU_ZHONG`, `XU_HAO`, `WEN_ZI`) VALUES ('account', 'CN', '密码', '密码');
@@ -371,3 +371,5 @@ INSERT INTO `txl_yuyan` (`YE_MIAN_MING`, `YU_ZHONG`, `XU_HAO`, `WEN_ZI`) VALUES 
 INSERT INTO `txl_yuyan` (`YE_MIAN_MING`, `YU_ZHONG`, `XU_HAO`, `WEN_ZI`) VALUES ('index', 'EN', '位联系人', 'Contacts');
 INSERT INTO `txl_yuyan` (`YE_MIAN_MING`, `YU_ZHONG`, `XU_HAO`, `WEN_ZI`) VALUES ('manage', 'CN', '使用Excel、TXT等方式轻松导入联系人', '使用Excel、TXT等方式轻松导入联系人');
 INSERT INTO `txl_yuyan` (`YE_MIAN_MING`, `YU_ZHONG`, `XU_HAO`, `WEN_ZI`) VALUES ('manage', 'EN', '使用Excel、TXT等方式轻松导入联系人', 'Easily import contacts using Excel, TXT, etc');
+INSERT INTO `txl_yuyan` (`YE_MIAN_MING`, `YU_ZHONG`, `XU_HAO`, `WEN_ZI`) VALUES ('piLiang', 'CN', '批量导出', '批量导出');
+INSERT INTO `txl_yuyan` (`YE_MIAN_MING`, `YU_ZHONG`, `XU_HAO`, `WEN_ZI`) VALUES ('piLiang', 'EN', '批量导出', 'Batch Export');

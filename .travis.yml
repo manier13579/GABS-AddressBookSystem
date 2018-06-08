@@ -8,5 +8,5 @@ before_script:
   - mysql -u root -e 'CREATE DATABASE list3;'
   - mysql -u root list3 < sql/db.sql
   
-script:
+script: phpunit --stderr texts/signin_test.php
   

@@ -5,8 +5,7 @@ php:
   - 7.0
   
 before_install:
-  - mysql -u root -e 'CREATE DATABASE gabs;'
-  - mysql -u root gabs < sql/db.sql
+  - mysql -u root -e 'CREATE DATABASE gabs;use gabs;set names utf8;source sql/db.sql;'
   - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('root') where User='root'; update user set plugin='mysql_native_password';grant all privileges on *.* to 'root'@'localhost' identified by 'root' with grant option;FLUSH PRIVILEGES;"
   
 script:

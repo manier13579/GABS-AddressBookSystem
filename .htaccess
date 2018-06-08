@@ -1,7 +1,7 @@
 #报错页自定义
-ErrorDocument 403 /err/403.php
-ErrorDocument 404 /err/404.php
-ErrorDocument 500 /err/500.php
+ErrorDocument 403 /src/err/403.php
+ErrorDocument 404 /src/err/404.php
+ErrorDocument 500 /src/err/500.php
 
 #禁止列出目录
 Options -Indexes
@@ -17,8 +17,7 @@ RewriteEngine on
 #RewriteCond %{REQUEST_FILENAME} !-d
 #RewriteCond %{REQUEST_FILENAME} !-f
 
-RewriteRule ^manage$ /view/manage.php [L]
-
-RewriteRule ^manage/([a-zA-Z0-9\-]*)$ /view/manage/$1.php [L]
-
+RewriteRule ^manage$ /src/view/manage.php [L]
+RewriteRule ^manage/([a-zA-Z0-9\-]*)$ /src/view/manage/$1.php [L]
+RewriteRule ^account$ /src/account.php [L]
 </IfModule>

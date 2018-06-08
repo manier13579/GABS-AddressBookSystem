@@ -1,10 +1,10 @@
 <?php
-require_once $_SERVER ['DOCUMENT_ROOT'].'/nav.php';
+require_once $_SERVER ['DOCUMENT_ROOT'].'/src/nav.php';
 //echo com_create_guid();
 ?>
-<link rel="stylesheet" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/css/index.css">
-<script src="<?php $_SERVER ['DOCUMENT_ROOT']?>/js/clipboard.min.js"></script>
-<script src="<?php $_SERVER ['DOCUMENT_ROOT']?>/js/jquery.nicescroll.min.js"></script>
+<link rel="stylesheet" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/css/index.css">
+<script src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/clipboard.min.js"></script>
+<script src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/jquery.nicescroll.min.js"></script>
 
 <div class="wrap">
   <div class="layui-row layui-col-space15">
@@ -49,7 +49,7 @@ require_once $_SERVER ['DOCUMENT_ROOT'].'/nav.php';
   </div>
 </div>
 
-<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/js/custom.js"></script>
+<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/custom.js"></script>
 <script type="text/javascript">
 $("#index").addClass("layui-this");
 //初始化语言
@@ -97,7 +97,7 @@ layui.use(['table', 'form','element'], function(){
     table1 = table.render({
       elem:'#table1',
       height: 528, //容器高度
-      url: rootpath+'/controller/list_controller.php',
+      url: rootpath+'/src/controller/list_controller.php',
       where: {name:name,action:action},
       even:true,
       size:'sm',
@@ -156,13 +156,14 @@ layui.use(['table', 'form','element'], function(){
               if(key!='GUID'&&key!='QUAN_XIAN'&&key!='USER_ID'&&key!='LAY_TABLE_INDEX'){
                 var dataCache = table1Data[id][key];
                 for(k in name){  // 匹配度计算
-                  var piPei = dataCache.toUpperCase().indexOf(name[k].toUpperCase());  //转大写，匹配大小写
-                  if(piPei!=-1){
-                    piPeiDu += 1;
-                    dataCache = dataCache.slice(piPei+1);
+                  if(dataCache !=null){
+                    var piPei = dataCache.toUpperCase().indexOf(name[k].toUpperCase());  //转大写，匹配大小写
+                    if(piPei!=-1){
+                      piPeiDu += 1;
+                      dataCache = dataCache.slice(piPei+1);
+                    }
                   }
                 }
-                
               }
               if(piPeiDu == name.length){  // 如果匹配查询
                 $('.layui-table-body tr[data-index="'+index+'"]').show();  //此行显示
@@ -188,7 +189,7 @@ layui.use(['table', 'form','element'], function(){
       title: '添加联系人 - Add contacts',
       shade: 0.4,
       area: ['830px','510px'],
-      content: rootpath+'/view/addIframe.php',
+      content: rootpath+'/src/view/addIframe.php',
       end:function(){
         if(tableRef==true){
           initTable('');
@@ -214,7 +215,7 @@ layui.use(['table', 'form','element'], function(){
         title: '查看联系人 - View contacts',
         shade: 0.4,
         area: ['830px','510px'],
-        content: rootpath+'/view/editIframe.php',
+        content: rootpath+'/src/view/editIframe.php',
         end:function(){
           if(tableRef==true){
             initTable('');
@@ -233,7 +234,7 @@ layui.use(['table', 'form','element'], function(){
         title: '查看联系人 - View contacts',
         shade: 0.4,
         area: ['830px','510px'],
-        content: rootpath+'/view/editIframe.php',
+        content: rootpath+'/src/view/editIframe.php',
         end:function(){
           if(tableRef==true){
             initTable('');
@@ -282,7 +283,7 @@ layui.use(['table', 'form','element'], function(){
       title: '',
       shade: 0.4,
       area: ['540px','378px'],
-      content: rootpath+'/view/filterIframe.php',
+      content: rootpath+'/src/view/filterIframe.php',
       end:function(){
         initTable('');
       }

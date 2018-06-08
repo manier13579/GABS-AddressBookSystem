@@ -8,9 +8,9 @@ if (substr($_SERVER['PHP_SELF'],strrpos($_SERVER['PHP_SELF'],'/')+1)=="db.php"){
 function DbOpen()
 {
 	$host = "localhost";
-	$db_user = "bing";
-	$db_pass = "906124";
-	$db_name = "list3";
+	$db_user = "root";
+	$db_pass = "root";
+	$db_name = "gabs";
 	$timezone = "Asia/Beijing";
 	$setutf8 = "SET NAMES utf8";
 

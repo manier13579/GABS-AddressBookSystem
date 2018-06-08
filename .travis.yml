@@ -8,5 +8,6 @@ before_script:
   - mysql -u root -e 'CREATE DATABASE list3;'
   - mysql -u root list3 < sql/db.sql
   
-script: phpunit --stderr texts/signin_test.php
-  
+script:
+  - phpunit                  #default test command
+  - phpunit -c phpunit.xml   #custom test command to make sure CLI args don't break the test

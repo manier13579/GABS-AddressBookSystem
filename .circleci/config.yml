@@ -52,6 +52,5 @@ jobs:
             sudo mysql -e 'CREATE DATABASE gabs;use gabs;set names utf8;source sql/db.sql;'
           
       # run tests!
-      - run: phpunit
-            
+      - run: ./vendor/bin/phpunit
             

@@ -8,30 +8,31 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/php:7.1.5-browsers
+      - image: tkuchiki/delayed-mysql
+        environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_ROOT_PASSWORD: 'root'
+          MYSQL_DATABASE: gabs
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mysql:9.4
 
-    working_directory: ~/repo
+    working_directory: ~/
 
     steps:
       - checkout
 
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "composer.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
-      - run: composer install -n --prefer-dist
-
-      - save_cache:
-          paths:
-            - ./vendor
-          key: v1-dependencies-{{ checksum "composer.json" }}
-        
+      - run:
+          name: Bundle install
+          command: bundle install
+          
+      - run:
+          name: Wait for DB
+          # preinstalled in circleci/* docker image
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
+          command: sudo mysql -e 'CREATE DATABASE gabs;use gabs;set names utf8;source sql/db.sql;'
+          
       # run tests!
       - run: phpunit

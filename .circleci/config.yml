@@ -10,7 +10,7 @@ jobs:
       - image: circleci/php:7.2-apache-stretch-node-browsers
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_ROOT_PASSWORD: 'root'
+          MYSQL_ROOT_PASSWORD: root
           MYSQL_HOST: 127.0.0.1
       
       # Specify service dependencies here if necessary

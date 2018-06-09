@@ -1,5 +1,6 @@
 # GABS-AddressBookSystem
 [![Build Status](https://travis-ci.org/manier13579/GABS-AddressBookSystem.svg?branch=master)](https://travis-ci.org/manier13579/GABS-AddressBookSystem)
+[![CircleCI](https://circleci.com/gh/manier13579/GABS-AddressBookSystem/tree/master.svg?style=svg)](https://circleci.com/gh/manier13579/GABS-AddressBookSystem/tree/master)
 * 基于web的通讯录系统，适用于企业或者个人使用。
 * 目的在于快速获取联系人信息，或通过信息快速查找联系人、与他人共享联系人等。
 * 这个项目我本人一直在使用，同时也在当前公司部署，分享给公司员工使用，会一直更新。

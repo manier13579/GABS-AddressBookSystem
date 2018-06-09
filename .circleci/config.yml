@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/php:7.2-apache-stretch-node-browsers
+      - image: circleci/php:7.0-apache-stretch-node-browsers
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_ROOT_PASSWORD: 'root'
@@ -31,8 +31,8 @@ jobs:
       - run:
           name: Install PHP exts
           command: |
-            sudo apt-get install php7.2-mysql
-            sudo dpkg-reconfigure  php7.2-mysql
+            sudo apt-get install php7.0-mysql
+            sudo dpkg-reconfigure  php7.0-mysql
             
       - run:
           name: Fix MySQL socket config

@@ -51,6 +51,7 @@ jobs:
           command: |
             sudo mysql -e 'CREATE DATABASE gabs;use gabs;set names utf8;source sql/db.sql;'
           
-      # run tests!
-      - run: ./vendor/bin/phpunit
-            
+      - run:
+          name: Run tests
+          command: |
+            php ./tests/signin_test.php

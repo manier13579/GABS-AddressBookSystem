@@ -26,13 +26,11 @@ jobs:
             sudo apt-get update
             sudo apt-get install -y libzip-dev
             sudo apt-get install -y zlib1g-dev libicu-dev g++
+            sudo apt-get install php7.0-mysql
+            sudo dpkg-reconfigure php7.0-mysql
+            
             sudo apt-get install mysql-client
             sudo apt-get -y install mysql-server
-      - run:
-          name: Install PHP exts
-          command: |
-            sudo apt-get install php7.0-mysql
-            sudo dpkg-reconfigure  php7.0-mysql
             
       - run:
           name: Fix MySQL socket config

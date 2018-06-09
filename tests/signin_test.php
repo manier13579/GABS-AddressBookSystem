@@ -1,7 +1,8 @@
 <?php
 require_once dirname(__FILE__).'/../src/controller/class/signin_class.php';
 
-class signinTest extends PHPUnit_Framework_TestCase {
+use PHPUnit\Framework\TestCase;
+class signinTest extends TestCase {
   public function testLoginSuccess() {
     $expected = 'admin';
 

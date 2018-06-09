@@ -13,7 +13,7 @@ jobs:
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
-      - image: circleci/mysql:9.4
+      - image: mysql
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_ROOT_PASSWORD: 'root'
@@ -23,6 +23,7 @@ jobs:
       - checkout
 
       - run:
+          name: Set up DB
           command: sudo mysql -e 'CREATE DATABASE gabs;use gabs;set names utf8;source sql/db.sql;'
           
       # run tests!

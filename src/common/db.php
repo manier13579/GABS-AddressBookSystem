@@ -7,7 +7,7 @@ if (substr($_SERVER['PHP_SELF'],strrpos($_SERVER['PHP_SELF'],'/')+1)=="db.php"){
 //开启数据库连接
 function DbOpen()
 {
-	$host = "localhost";
+	$host = "127.0.0.1";
 	$db_user = "root";
 	$db_pass = "root";
 	$db_name = "gabs";

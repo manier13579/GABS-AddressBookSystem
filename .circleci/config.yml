@@ -11,7 +11,7 @@ jobs:
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_ROOT_PASSWORD: 'root'
-          MYSQL_HOST: localhost
+          MYSQL_HOST: 127.0.0.1
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images

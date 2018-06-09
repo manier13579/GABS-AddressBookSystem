@@ -31,10 +31,9 @@ jobs:
       - run:
           name: Install PHP exts
           command: |
-            sudo docker-php-ext-install zip
-            sudo docker-php-ext-configure intl
-            sudo docker-php-ext-install intl
-            sudo docker-php-ext-install pdo_mysql
+            sudo apt-get install php7.2-mysql
+            sudo dpkg-reconfigure  php7.2-mysql
+            
       - run:
           name: Fix MySQL socket config
           command: |

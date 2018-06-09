@@ -54,9 +54,9 @@ jobs:
       - run:
           name: Init phpunit
           command: |
-            wget https://phar.phpunit.de/phpunit.phar
-            chmod +x phpunit.phar
-            mv phpunit.phar /usr/local/bin/phpunit
+            sudo wget https://phar.phpunit.de/phpunit.phar
+            sudo chmod +x phpunit.phar
+            sudo mv phpunit.phar /usr/local/bin/phpunit
             
       - run:
           name: Run tests

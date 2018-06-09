@@ -8,10 +8,6 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/php:7.2-apache-stretch-node-browsers
-        environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_HOST: 127.0.0.1
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -39,7 +35,7 @@ jobs:
           name: Set DB
           command: |
             sudo mysql -e 'CREATE DATABASE gabs;use gabs;set names utf8;source sql/db.sql;'
-            
+            sudo mysql -e "use mysql;update user set authentication_string=PASSWORD('root') where User='root'; update user set plugin='mysql_native_password';grant all privileges on *.* to 'root'@'localhost' identified by 'root' with grant option;FLUSH PRIVILEGES;"
       - run:
           name: Init phpunit
           command: |

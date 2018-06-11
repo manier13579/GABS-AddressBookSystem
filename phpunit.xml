@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<phpunit
-  stderr="true"
->
+<phpunit stderr="true">
   <testsuites>
 		<testsuite name="TestSuite">
 			<directory suffix=".php">tests</directory>

@@ -21,8 +21,7 @@ class signin_class{
         $ip = $_SERVER["REMOTE_ADDR"];
         $sql = "update txl_user set FAILED_LOGINS = 0, LAST_LOGIN = now(), LAST_IP = '".$ip."' where USER_ID = '".$userid."'";
         DbSelect($con,$sql);
-        
-        session_start();
+        if(!session_id()&&!headers_sent()) session_start();  //开启session
         $_SESSION['USER_ID'] = $row['USER_ID'];
         $_SESSION['USER_NAME'] = $row['USER_NAME'];
         $_SESSION['USER_TYPE'] = $row['USER_TYPE'];

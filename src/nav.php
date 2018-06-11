@@ -15,8 +15,8 @@ if(!isset($_SESSION['USER_ID'])){header("Location:/account");}
 	<link rel="stylesheet" type="text/css" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/css/custom.css"/>
   <link rel="stylesheet" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/css/nav.css">
   
-  <link rel="shortcut icon" href="favicon.ico"type="image/vnd.microsoft.icon">
-  <link rel="icon"href="favicon.ico" type="image/vnd.microsoft.icon">
+  <link rel="shortcut icon" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/images/favicon.ico"type="image/vnd.microsoft.icon">
+  <link rel="icon"href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/images/favicon.ico" type="image/vnd.microsoft.icon">
 </head>
 <body>
 <div class="layui-layout layui-layout-admin">

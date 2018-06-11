@@ -14,8 +14,8 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/css/custom.css"/>
 	<link rel="stylesheet" type="text/css" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/css/account.css"/>
 
-  <link rel="shortcut icon" href="favicon.ico"type="image/vnd.microsoft.icon">
-  <link rel="icon"href="favicon.ico" type="image/vnd.microsoft.icon">
+  <link rel="shortcut icon" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/images/favicon.ico"type="image/vnd.microsoft.icon">
+  <link rel="icon"href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/images/favicon.ico" type="image/vnd.microsoft.icon">
 </head>
 
 <body>

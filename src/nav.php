@@ -1,22 +1,24 @@
 <?php
 session_start();
 if(!isset($_SESSION['USER_ID'])){header("Location:/account");}
+require_once dirname(__FILE__).'/common/path.php';    //获取路径设置
+
 ?>
 
 <html>
 <head>
   <title>通讯录系统 - GABS</title>
   <meta http-equiv="content-type" content="text/html" charset="UTF-8">
-  <script src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/jquery-1.12.0.min.js"></script>
-	<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/layui/layui.js"></script>
-  <script src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/common.js"></script>
+  <script src="<?php $rootpath?>/src/js/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="<?php $rootpath ?>/src/js/layui/layui.js"></script>
+  <script src="<?php $rootpath ?>/src/js/common.js"></script>
   
-	<link rel="stylesheet" type="text/css" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/layui/css/layui.css"/>
-	<link rel="stylesheet" type="text/css" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/css/custom.css"/>
-  <link rel="stylesheet" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/css/nav.css">
+	<link rel="stylesheet" type="text/css" href="<?php $rootpath ?>/src/js/layui/css/layui.css"/>
+	<link rel="stylesheet" type="text/css" href="<?php $rootpath ?>/src/css/custom.css"/>
+  <link rel="stylesheet" href="<?php $rootpath ?>/src/css/nav.css">
   
-  <link rel="shortcut icon" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/images/favicon.ico"type="image/vnd.microsoft.icon">
-  <link rel="icon"href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/images/favicon.ico" type="image/vnd.microsoft.icon">
+  <link rel="shortcut icon" href="<?php $rootpath ?>/src/images/favicon.ico"type="image/vnd.microsoft.icon">
+  <link rel="icon"href="<?php $rootpath ?>/src/images/favicon.ico" type="image/vnd.microsoft.icon">
 </head>
 <body>
 <div class="layui-layout layui-layout-admin">
@@ -25,12 +27,12 @@ if(!isset($_SESSION['USER_ID'])){header("Location:/account");}
     <ul class="layui-nav" lay-filter="demo">
       <li class="topbar-logo"><span lang="通讯录"></span></li>
       <li class="topbar-logo2">Global Address Book System</li>
-      <li class="layui-nav-item" id="index"><a href="<?php $_SERVER ['DOCUMENT_ROOT']?>/"><span lang="首页"></span></a></li>
-      <li class="layui-nav-item" id="manage"><a href="<?php $_SERVER ['DOCUMENT_ROOT']?>/manage"><span lang="管理"></span></a></li>
+      <li class="layui-nav-item" id="index"><a href="<?php $rootpath ?>/"><span lang="首页"></span></a></li>
+      <li class="layui-nav-item" id="manage"><a href="<?php $rootpath ?>/manage"><span lang="管理"></span></a></li>
       <li class="layui-nav-item topbar-user">
         <a href=""><i class="layui-icon">&#xe612;</i><?php echo $_SESSION['USER_NAME'];?></a>
         <dl class="layui-nav-child">
-          <dd><a href="<?php $_SERVER ['DOCUMENT_ROOT']?>/manage/changePass"><span lang="更改密码"></span></a></dd>
+          <dd><a href="<?php $rootpath ?>/manage/changePass"><span lang="更改密码"></span></a></dd>
           <dd><a id="exit"><span lang="退出"></span></a></dd>
         </dl>
       </li>

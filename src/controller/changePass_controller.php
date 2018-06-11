@@ -1,6 +1,7 @@
 <?php
-require $_SERVER ['DOCUMENT_ROOT'].'/src/common/db.php';
-require $_SERVER ['DOCUMENT_ROOT'].'/src/common/function.php';
+require_once dirname(__FILE__).'/../common/path.php';
+require_once $rootpath.'/src/common/db.php';
+require_once $rootpath.'/src/common/function.php';
 session_start(); //开启session
 
 $oldp = md5(md5($_POST['oldp']));

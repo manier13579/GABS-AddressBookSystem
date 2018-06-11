@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__).'/../src/controller/class/signin_class.php';
+require_once dirname(__FILE__).'/../src/class/signin_class.php';
 
 use PHPUnit\Framework\TestCase;
 class signinTest extends TestCase {

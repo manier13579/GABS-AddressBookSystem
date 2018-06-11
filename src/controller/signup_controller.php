@@ -1,5 +1,6 @@
 <?php
-require $_SERVER ['DOCUMENT_ROOT'].'/src/common/db.php';
+require_once dirname(__FILE__).'/../common/path.php';
+require_once $rootpath.'/src/common/db.php';
 
 $userid = $_POST['userid'];
 $pass = $_POST['pass'];

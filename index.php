@@ -1,10 +1,10 @@
 <?php
-require_once $_SERVER ['DOCUMENT_ROOT'].'/src/nav.php';
-//echo com_create_guid();
+require_once dirname(__FILE__).'/src/nav.php';
+
 ?>
-<link rel="stylesheet" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/css/index.css">
-<script src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/clipboard.min.js"></script>
-<script src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/jquery.nicescroll.min.js"></script>
+<link rel="stylesheet" href="<?php $rootpath ?>/src/css/index.css">
+<script src="<?php $rootpath ?>/src/js/clipboard.min.js"></script>
+<script src="<?php $rootpath ?>/src/js/jquery.nicescroll.min.js"></script>
 
 <div class="wrap">
   <div class="layui-row layui-col-space15">
@@ -49,7 +49,7 @@ require_once $_SERVER ['DOCUMENT_ROOT'].'/src/nav.php';
   </div>
 </div>
 
-<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/custom.js"></script>
+<script type="text/javascript" src="<?php $rootpath ?>/src/js/custom.js"></script>
 <script type="text/javascript">
 $("#index").addClass("layui-this");
 //初始化语言

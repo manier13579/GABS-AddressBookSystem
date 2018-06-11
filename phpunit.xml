@@ -2,7 +2,7 @@
 <phpunit stderr="true">
   <testsuites>
 		<testsuite name="TestSuite">
-			<directory suffix=".php">tests</directory>
+			<directory suffix="bootstrap.php">tests</directory>
 		</testsuite>
 	</testsuites>
 	<php>

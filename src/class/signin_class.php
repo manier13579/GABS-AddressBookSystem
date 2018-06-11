@@ -1,5 +1,4 @@
 <?php
-require_once dirname(__FILE__).'/../common/path.php';
 require_once $rootpath.'/src/common/db.php';
 
 class signin_class{

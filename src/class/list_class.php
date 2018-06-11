@@ -1,12 +1,11 @@
 <?php
-require_once dirname(__FILE__).'/../common/path.php';
 require_once $rootpath.'/src/common/db.php';
 require_once $rootpath.'/src/common/function.php';
 
 class list_class{
   //首页获取通讯录所有联系人
   public function init($testUserId=''){
-    if(!headers_sent()){session_start();}  //开启session
+    if(!session_id()&&!headers_sent()){session_start();}  //开启session
     if($testUserId!=''){$_SESSION['USER_ID'] = $testUserId;}  
     //连接数据库
     $response = new stdClass();

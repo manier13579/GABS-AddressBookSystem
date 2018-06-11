@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__).'/../src/class/list_class.php';
+require_once $rootpath.'/src/class/list_class.php';
 
 use PHPUnit\Framework\TestCase;
 class listTest extends TestCase {

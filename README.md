@@ -36,9 +36,11 @@
 #### 1、部署WAMP或LAMP环境
     PHP版本5.6及以上，需要 php_mysqli 扩展。
 #### 2、新建mysql数据库
-    数据库名任意
+    数据库名任意。
+    例：mysql -e 'CREATE DATABASE gabs;'
 #### 3、导入数据库基础环境
     在新建的数据库运行 sql\db.sql 文件，导入表结构和基础数据
+    例：mysql -e 'use gabs; set names utf8; source sql/db.sql;'
 #### 4、配置数据库链接
     修改数据库连接配置文件：src\common\db.php
     默认数据库名称为'gabs'，数据库用户名和密码都为'root'，可根据实际情况修改

@@ -6,11 +6,12 @@ php:
   
 install:
   - curl -s http://getcomposer.org/installer | php
-  - php composer.phar install --dev --no-interaction
-
+  - composer install --prefer-dist --dev --no-interaction
 script:
   - mkdir -p report/html
   - phpunit                  #default test command
   - phpunit -c phpunit.xml   #custom test command to make sure CLI args don't break the test
   
-after_script:
+after_script:  
+  - travis_retry php vendor/bin/coveralls -v
+  

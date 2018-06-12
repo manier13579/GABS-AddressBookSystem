@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<phpunit stderr="true">
+<phpunit 
+  stderr="true" 
+  processUncoveredFilesFromWhitelist="true"
+>
   <testsuites>
 		<testsuite name="TestSuite">
 			<directory suffix="bootstrap.php">tests</directory>
 		</testsuite>
 	</testsuites>
+  
 	<php>
 		<const name="PHPUNIT_TEST" value="1" />
 		<server name="REMOTE_ADDR" value="0.0.0.0" />
 	</php>
+  
+  <filter>
+    <whitelist processUncoveredFilesFromWhitelist="true">
+      <directory suffix=".php">src/class</directory>
+    </whitelist>
+  </filter>
+  
+  <logging>
+    <!-- target(report/html) 生成html 文件的目录-->
+    <log type="coverage-html" target="report/html" charset="UTF-8" yui="true" highlight="false" lowUpperBound="35" highLowerBound="70"/>
+    <!-- target(report/coverage/coverage.xml) 生成xml的文件名-->
+    <log type="coverage-clover" target="report/coverage.xml"/>
+  </logging>
+
 </phpunit>

@@ -18,4 +18,5 @@ script:
   - phpunit --coverage-clover report/clover.xml
   
 after_script:  
+  - cat report/clover.xml
   - vendor/bin/php-coveralls -v

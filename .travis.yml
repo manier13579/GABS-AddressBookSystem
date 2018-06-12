@@ -11,12 +11,11 @@ install:
 before_script:
   - sudo mysql -e 'CREATE DATABASE gabs;use gabs;set names utf8;source sql/db.sql;'
   - sudo mysql -e "use mysql;update user set authentication_string=PASSWORD('root') where User='root'; update user set plugin='mysql_native_password';grant all privileges on *.* to 'root'@'localhost' identified by 'root' with grant option;FLUSH PRIVILEGES;"
+  - mkdir -p report/html
+  - ls -al
   
 script:
-  - mkdir -p report/html
-  - phpunit                  #default test command
-  - phpunit -c phpunit.xml   #custom test command to make sure CLI args don't break the test
+  - phpunit --coverage-clover report/clover.xml
   
 after_script:  
-  - vendor/bin/php-coveralls -v --exclude-no-stmt
-  
+  - vendor/bin/php-coveralls -v

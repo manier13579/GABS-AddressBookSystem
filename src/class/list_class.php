@@ -90,7 +90,7 @@ class list_class
     }
 
     //增加联系人
-    public function TianJia($formData)
+    public function TianJia($formData,$testGUID = '')
     {
         if (!session_id()) {
             session_start();
@@ -115,11 +115,17 @@ class list_class
             }
         }
         //echo json_encode($formRes);
+        //如果没有给出测试用GUID，则生成1个
+        if ($testGUID != '') {
+            $GUID = $testGUID;
+            $_SESSION['USER_ID'] = 'admin';
+        }else{
+            //生成1个GUID
+            $GUID = com_create_guid();
+            $GUID = str_replace('{', '', $GUID);
+            $GUID = str_replace('}', '', $GUID);
+        }
 
-        //生成1个GUID
-        $GUID = com_create_guid();
-        $GUID = str_replace('{', '', $GUID);
-        $GUID = str_replace('}', '', $GUID);
 
         //将通讯录数据插入到通讯录数据表
         $sql1 = 'INSERT INTO txl_jichushuju VALUES ';

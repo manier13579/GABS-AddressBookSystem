@@ -25,7 +25,7 @@
     <log type="coverage-html" target="report/html" charset="UTF-8" yui="true" highlight="false" lowUpperBound="35" highLowerBound="70"/>
     <!-- target(report/clover.xml) 生成xml的文件名-->
     <log type="coverage-clover" target="report/clover.xml"/>
-    <log type="coverage-text" target="php://stdout" showuncoveredfiles="true">
+    <log type="coverage-text" target="php://stdout" showuncoveredfiles="true"/>
   </logging>
 
 </phpunit>

@@ -6,16 +6,16 @@ session_start();
 <head>
   <title>通讯录系统 - GABS</title>
   <meta http-equiv="content-type" content="text/html" charset="UTF-8">
-  <script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/jquery-1.12.0.min.js"></script>
-	<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/layui/layui.js"></script>
-  <script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/common.js"></script>
+  <script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/layui/layui.js"></script>
+  <script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/common.js"></script>
   
-	<link rel="stylesheet" type="text/css" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/layui/css/layui.css"/>
-	<link rel="stylesheet" type="text/css" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/css/custom.css"/>
-	<link rel="stylesheet" type="text/css" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/css/account.css"/>
+	<link rel="stylesheet" type="text/css" href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/layui/css/layui.css"/>
+	<link rel="stylesheet" type="text/css" href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/css/custom.css"/>
+	<link rel="stylesheet" type="text/css" href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/css/account.css"/>
 
-  <link rel="shortcut icon" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/images/favicon.ico"type="image/vnd.microsoft.icon">
-  <link rel="icon"href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/images/favicon.ico" type="image/vnd.microsoft.icon">
+  <link rel="shortcut icon" href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/images/favicon.ico"type="image/vnd.microsoft.icon">
+  <link rel="icon"href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/images/favicon.ico" type="image/vnd.microsoft.icon">
 </head>
 
 <body>
@@ -87,7 +87,7 @@ session_start();
 
 </body>
 </html>
-<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/custom.js"></script>
+<script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/custom.js"></script>
 <script type="text/javascript">
 
 layui.use('form', function(){
@@ -114,10 +114,10 @@ layui.use('form', function(){
     });
   }
   var langNow = '<?php 
-  if(!isset($_SESSION['lang'])){
-    echo 'CN';
-  }else{
-    echo $_SESSION['lang'];
+  if (!isset($_SESSION['lang'])) {
+      echo 'CN';
+  } else {
+      echo $_SESSION['lang'];
   }
   ?>';
   initLang('account',langNow);

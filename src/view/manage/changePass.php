@@ -1,15 +1,15 @@
 <?php
-$view='manage';
-$page='changePass';
+$view = 'manage';
+$page = 'changePass';
 
-require_once $_SERVER ['DOCUMENT_ROOT'].'/src/nav.php';
-require_once $_SERVER ['DOCUMENT_ROOT'].'/src/view.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/src/nav.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/src/view.php';
 ?>
-<link rel="stylesheet" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/view/<?php echo $view.'/'.$page.'.css';?>">
+<link rel="stylesheet" href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/view/<?php echo $view.'/'.$page.'.css'; ?>">
 
 <div class="layui-body">
   <div class="layui-row mianbao">
-    <a href="<?php $_SERVER ['DOCUMENT_ROOT']?>/manage"><span lang="管理"></span></a>
+    <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/manage"><span lang="管理"></span></a>
     <span class="layui-icon">&#xe602;</span>
     <a href="javascript:;"><span lang="个人管理"></span></a>
     <span class="layui-icon">&#xe602;</span>
@@ -57,9 +57,9 @@ require_once $_SERVER ['DOCUMENT_ROOT'].'/src/view.php';
 
 
 <script type="text/javascript">
-$("a[id='<?php echo $page;?>']").parent().addClass('layui-this');
+$("a[id='<?php echo $page; ?>']").parent().addClass('layui-this');
 //初始化语言
-initLang('<?php echo $page;?>',''+langNow+'');
+initLang('<?php echo $page; ?>',''+langNow+'');
 langPages.push('<?php echo $page;?>');
   
 layui.use('form', function(){

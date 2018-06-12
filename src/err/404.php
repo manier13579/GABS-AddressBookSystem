@@ -1,7 +1,7 @@
 <?php
-require_once $_SERVER ['DOCUMENT_ROOT'].'/src/nav.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/src/nav.php';
 ?>
-<link rel="stylesheet" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/css/err.css">
+<link rel="stylesheet" href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/css/err.css">
 
 <div class="err-wrap">
   <div class="err-en">404 Page Not Found</div>

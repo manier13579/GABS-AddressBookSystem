@@ -1,42 +1,42 @@
 <?php
-$view='manage';
-$page='langRegister';
+$view = 'manage';
+$page = 'langRegister';
 
-require_once $_SERVER ['DOCUMENT_ROOT'].'/src/nav.php';
-require_once $_SERVER ['DOCUMENT_ROOT'].'/src/view.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/src/nav.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/src/view.php';
 
-require $_SERVER ['DOCUMENT_ROOT'].'/src/common/db.php';
-if(!empty($_POST['action'])){
-  $action = $_POST['action'];
-}else{
-  $action = '';
+require $_SERVER['DOCUMENT_ROOT'].'/src/common/db.php';
+if (!empty($_POST['action'])) {
+    $action = $_POST['action'];
+} else {
+    $action = '';
 }
 
-switch($action){
+switch ($action) {
   case 'lang':
-    
+
     $YeMianMing = $_POST['YeMianMing'];
     $CN = $_POST['CN'];
     $EN = $_POST['EN'];
 
     //连接数据库
-    $con=DbOpen();
+    $con = DbOpen();
     $sql1 = "insert into TXL_YUYAN values('".$YeMianMing."','CN','".$CN."','".$CN."')";
     $sql2 = "insert into TXL_YUYAN values('".$YeMianMing."','EN','".$CN."','".$EN."')";
-    DbSelect($con,$sql1);
-    DbSelect($con,$sql2);
+    DbSelect($con, $sql1);
+    DbSelect($con, $sql2);
     DbClose($con);
-  
+
   break;
 }
 
 ?>
-<script src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/jquery.nicescroll.min.js"></script>
-<link rel="stylesheet" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/view/<?php echo $view.'/'.$page.'.css';?>">
+<script src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/jquery.nicescroll.min.js"></script>
+<link rel="stylesheet" href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/view/<?php echo $view.'/'.$page.'.css'; ?>">
 
 <div class="layui-body">
   <div class="layui-row mianbao">
-    <a href="<?php $_SERVER ['DOCUMENT_ROOT']?>/manage"><span lang="管理"></span></a>
+    <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/manage"><span lang="管理"></span></a>
     <span class="layui-icon">&#xe602;</span>
     <a href="javascript:;"><span lang="系统管理"></span></a>
     <span class="layui-icon">&#xe602;</span>
@@ -79,9 +79,9 @@ switch($action){
 
 
 <script type="text/javascript">
-$("a[id='<?php echo $page;?>']").parent().addClass('layui-this');
+$("a[id='<?php echo $page; ?>']").parent().addClass('layui-this');
 //初始化语言
-initLang('<?php echo $page;?>',''+langNow+'');
+initLang('<?php echo $page; ?>',''+langNow+'');
 langPages.push('<?php echo $page;?>');
 
 layui.use('form', function(){

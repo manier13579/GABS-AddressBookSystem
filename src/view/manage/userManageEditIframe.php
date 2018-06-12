@@ -6,14 +6,16 @@ $usertype = $_GET['usertype'];
 $zu = $_GET['zu'];
 $zuid = $_GET['zuid'];
 $email = $_GET['email'];
-if($email=='null'){$email='';}
+if ($email == 'null') {
+    $email = '';
+}
 
 ?>
-<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/jquery-1.12.0.min.js"></script>
-<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/layui/layui.js"></script>
-<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/common.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/layui/css/layui.css"/>
-<link rel="stylesheet" type="text/css" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/view/manage/userManageEditIframe.css"/>
+<script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/layui/layui.js"></script>
+<script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/common.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/layui/css/layui.css"/>
+<link rel="stylesheet" type="text/css" href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/view/manage/userManageEditIframe.css"/>
 
 <div class="wrap">
   <div class="zu-wrap">
@@ -21,7 +23,7 @@ if($email=='null'){$email='';}
       <div class="layui-form-item">
         <label class="layui-form-label">ID</label>
         <div class="layui-input-inline" style="width:230px !important">
-          <input type="text" name="userid" placeholder="" value="<?php echo $userid;?>" autocomplete="off" class="layui-input" disabled>
+          <input type="text" name="userid" placeholder="" value="<?php echo $userid; ?>" autocomplete="off" class="layui-input" disabled>
         </div>
       </div>
       <div class="layui-form-item">
@@ -33,13 +35,13 @@ if($email=='null'){$email='';}
       <div class="layui-form-item">
         <label class="layui-form-label"><span lang="用户名"></span></label>
         <div class="layui-input-inline" style="width:230px !important">
-          <input type="text" name="username" placeholder="" value="<?php echo $username;?>" autocomplete="off" class="layui-input">
+          <input type="text" name="username" placeholder="" value="<?php echo $username; ?>" autocomplete="off" class="layui-input">
         </div>
       </div>
       <div class="layui-form-item">
         <label class="layui-form-label"><span lang="组"></span></label>
         <div class="layui-input-inline" style="width:230px !important">
-          <input type="text" name="group" placeholder="" value="<?php echo $zu;?>" autocomplete="off" class="layui-input">
+          <input type="text" name="group" placeholder="" value="<?php echo $zu; ?>" autocomplete="off" class="layui-input">
         </div>
         
       </div>
@@ -48,14 +50,16 @@ if($email=='null'){$email='';}
         <div class="layui-input-inline" style="width:230px !important">
           <select name="permission" lay-verify="">
             <option value=1>user</option>
-            <option value=2 <?php if($usertype == '2'){echo 'selected';}?>>admin</option>
+            <option value=2 <?php if ($usertype == '2') {
+    echo 'selected';
+}?>>admin</option>
           </select>     
         </div>
       </div>
       <div class="layui-form-item">
         <label class="layui-form-label"><span lang="邮箱"></span></label>
         <div class="layui-input-inline" style="width:230px !important">
-          <input type="text" name="email" placeholder="" value="<?php echo $email;?>" autocomplete="off" class="layui-input">
+          <input type="text" name="email" placeholder="" value="<?php echo $email; ?>" autocomplete="off" class="layui-input">
         </div>
       </div>
     </form>

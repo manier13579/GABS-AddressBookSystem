@@ -1,6 +1,7 @@
 # GABS-AddressBookSystem
 [![Build Status](https://travis-ci.org/manier13579/GABS-AddressBookSystem.svg?branch=master)](https://travis-ci.org/manier13579/GABS-AddressBookSystem)
 [![Coverage Status](https://coveralls.io/repos/github/manier13579/GABS-AddressBookSystem/badge.svg)](https://coveralls.io/github/manier13579/GABS-AddressBookSystem)
+[![codecov](https://codecov.io/gh/manier13579/GABS-AddressBookSystem/branch/master/graph/badge.svg)](https://codecov.io/gh/manier13579/GABS-AddressBookSystem)
 [![CircleCI](https://circleci.com/gh/manier13579/GABS-AddressBookSystem/tree/master.svg?style=svg)](https://circleci.com/gh/manier13579/GABS-AddressBookSystem/tree/master)
 [![StyleCI](https://github.styleci.io/repos/136253474/shield?branch=master)](https://github.styleci.io/repos/136253474)
 * 基于web的通讯录系统，适用于企业或者个人使用。

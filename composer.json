@@ -1,5 +1,5 @@
 {
   "require-dev": {
-    "satooshi/php-coveralls":"*"
+    "php-coveralls/php-coveralls":"*"
   }
 }

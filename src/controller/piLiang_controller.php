@@ -1,19 +1,20 @@
 <?php
+
 require_once dirname(__FILE__).'/../common/path.php';
 require_once $rootpath.'/src/common/db.php';
 require_once $rootpath.'/src/common/function.php';
 session_start(); //开启session
 $action = $_POST['action'];
 
-switch ($action){
+switch ($action) {
 //初始化查询列表
 case 'init':
-  
+
   //连接数据库
   $responce = new stdClass();
   $responce->code = 0;
-  
-  $con=DbOpen();
+
+  $con = DbOpen();
   $sql1 = "
     SELECT a.GUID,a.XING_MING,a.XIANG_MU,a.NEI_RONG,b.USER_ID,b.QUAN_XIAN,b.ZU_ID,c.ZU_NAME FROM txl_jichushuju a
     LEFT JOIN txl_guid_quanxian b
@@ -27,81 +28,100 @@ case 'init':
     ORDER BY a.GUID ASC
     
   ";
-  $result = DbSelect($con,$sql1);
+  $result = DbSelect($con, $sql1);
 
   $i = 0;
   $res = [];
   while ($row = mysqli_fetch_array($result)) {
-    $res[$i] = array (
-      'GUID' => $row['GUID'],
+      $res[$i] = [
+      'GUID'      => $row['GUID'],
       'XING_MING' => $row['XING_MING'],
-      'XIANG_MU' => $row['XIANG_MU'],
-      'NEI_RONG' => jiemi($row['NEI_RONG']),
-      'USER_ID' => $row['USER_ID'],
+      'XIANG_MU'  => $row['XIANG_MU'],
+      'NEI_RONG'  => jiemi($row['NEI_RONG']),
+      'USER_ID'   => $row['USER_ID'],
       'QUAN_XIAN' => $row['QUAN_XIAN'],
-      'ZU_ID' => $row['ZU_ID'],
-      'ZU_NAME' => $row['ZU_NAME']
-    );
-    $i++;
+      'ZU_ID'     => $row['ZU_ID'],
+      'ZU_NAME'   => $row['ZU_NAME'],
+    ];
+      $i++;
   }
-  
+
   $j = 0;
   $data = [];
-  for($i=0;$i<count($res);$i++){
+  for ($i = 0; $i < count($res); $i++) {
+      if ($i > 0 && $res[$i]['GUID'] != $res[$i - 1]['GUID']) {
+          $j++;
+      }
 
-    if($i>0&&$res[$i]['GUID']!=$res[$i-1]['GUID']){
-      $j++;
-    }
-    
-    $data[$j]['GUID'] = $res[$i]['GUID'];  //返回GUID
+      $data[$j]['GUID'] = $res[$i]['GUID'];  //返回GUID
     $data[$j]['XING_MING'] = $res[$i]['XING_MING'];  //返回姓名
     $data[$j]['USER_ID'] = $res[$i]['USER_ID'];  //返回创建者
     $data[$j]['QUAN_XIAN'] = $res[$i]['QUAN_XIAN'];  //返回权限
     $data[$j]['ZU_ID'] = $res[$i]['ZU_ID'];  //返回组ID
     $data[$j]['ZU_NAME'] = $res[$i]['ZU_NAME'];  //返回组名
-    
-    if($res[$i]['XIANG_MU']=='手机'){
-      $data[$j]['SHOU_JI'] = $res[$i]['NEI_RONG'];  //返回手机
-    }else if($res[$i]['XIANG_MU']=='座机'){
-      $data[$j]['ZUO_JI'] = $res[$i]['NEI_RONG'];  //返回座机
-    }else if($res[$i]['XIANG_MU']=='邮箱'){
-      $data[$j]['YOU_XIANG'] = $res[$i]['NEI_RONG'];  //返回邮箱
-    }else if($res[$i]['XIANG_MU']=='拼音'){
-      $data[$j]['PIN_YIN'] = $res[$i]['NEI_RONG'];  //返回拼音
-    }else if($res[$i]['XIANG_MU']=='公司'){
-      $data[$j]['GONG_SI'] = $res[$i]['NEI_RONG'];  //返回公司
-    }else if($res[$i]['XIANG_MU']=='备注'){
-      $data[$j]['BEI_ZHU'] = $res[$i]['NEI_RONG'];  //返回备注
+
+    if ($res[$i]['XIANG_MU'] == '手机') {
+        $data[$j]['SHOU_JI'] = $res[$i]['NEI_RONG'];  //返回手机
+    } elseif ($res[$i]['XIANG_MU'] == '座机') {
+        $data[$j]['ZUO_JI'] = $res[$i]['NEI_RONG'];  //返回座机
+    } elseif ($res[$i]['XIANG_MU'] == '邮箱') {
+        $data[$j]['YOU_XIANG'] = $res[$i]['NEI_RONG'];  //返回邮箱
+    } elseif ($res[$i]['XIANG_MU'] == '拼音') {
+        $data[$j]['PIN_YIN'] = $res[$i]['NEI_RONG'];  //返回拼音
+    } elseif ($res[$i]['XIANG_MU'] == '公司') {
+        $data[$j]['GONG_SI'] = $res[$i]['NEI_RONG'];  //返回公司
+    } elseif ($res[$i]['XIANG_MU'] == '备注') {
+        $data[$j]['BEI_ZHU'] = $res[$i]['NEI_RONG'];  //返回备注
     }
   }
 
-  $responce ->data = $data;
+  $responce->data = $data;
   echo json_encode($responce);
   DbClose($con);
-break; 
-
+break;
 
 //保存事件
 case 'save':
-  if(!isset($_POST['table1Data'])){
-    $tableData = [];
-  }else{
-    $tableData = $_POST['table1Data'];  //获取表格数据
+  if (!isset($_POST['table1Data'])) {
+      $tableData = [];
+  } else {
+      $tableData = $_POST['table1Data'];  //获取表格数据
   }
-  for($i=0;$i<count($tableData);$i++){  //遍历表单数据
-    if(!isset($tableData[$i]["GONG_SI"])){$tableData[$i]["GONG_SI"] = '';}
-    if(!isset($tableData[$i]["SHOU_JI"])){$tableData[$i]["SHOU_JI"] = '';}
-    if(!isset($tableData[$i]["ZUO_JI"])){$tableData[$i]["ZUO_JI"] = '';}
-    if(!isset($tableData[$i]["YOU_XIANG"])){$tableData[$i]["YOU_XIANG"] = '';}
-    if(!isset($tableData[$i]["BEI_ZHU"])){$tableData[$i]["BEI_ZHU"] = '';}
-    if(!isset($tableData[$i]["ZU_ID"])){$tableData[$i]["ZU_ID"] = '';}
-    if(!isset($tableData[$i]["PIN_YIN"])){$tableData[$i]["PIN_YIN"] = '';}
-    if($tableData[$i]["ZU_ID"]==''){$tableData[$i]["QUAN_XIAN"] = 0;}
-    if($tableData[$i]["ZU_ID"]!=''&&$tableData[$i]["QUAN_XIAN"] != 2){$tableData[$i]["QUAN_XIAN"] = 1;}
-    
-    if($tableData[$i]['XING_MING']==''){echo 'not';break;}
-    
-    $sql1 = "
+  for ($i = 0; $i < count($tableData); $i++) {  //遍历表单数据
+      if (!isset($tableData[$i]['GONG_SI'])) {
+          $tableData[$i]['GONG_SI'] = '';
+      }
+      if (!isset($tableData[$i]['SHOU_JI'])) {
+          $tableData[$i]['SHOU_JI'] = '';
+      }
+      if (!isset($tableData[$i]['ZUO_JI'])) {
+          $tableData[$i]['ZUO_JI'] = '';
+      }
+      if (!isset($tableData[$i]['YOU_XIANG'])) {
+          $tableData[$i]['YOU_XIANG'] = '';
+      }
+      if (!isset($tableData[$i]['BEI_ZHU'])) {
+          $tableData[$i]['BEI_ZHU'] = '';
+      }
+      if (!isset($tableData[$i]['ZU_ID'])) {
+          $tableData[$i]['ZU_ID'] = '';
+      }
+      if (!isset($tableData[$i]['PIN_YIN'])) {
+          $tableData[$i]['PIN_YIN'] = '';
+      }
+      if ($tableData[$i]['ZU_ID'] == '') {
+          $tableData[$i]['QUAN_XIAN'] = 0;
+      }
+      if ($tableData[$i]['ZU_ID'] != '' && $tableData[$i]['QUAN_XIAN'] != 2) {
+          $tableData[$i]['QUAN_XIAN'] = 1;
+      }
+
+      if ($tableData[$i]['XING_MING'] == '') {
+          echo 'not';
+          break;
+      }
+
+      $sql1 = "
       /*拼音*/
       insert into txl_jichushuju (GUID,XING_MING,XIANG_MU,NEI_RONG) VALUES ('".$tableData[$i]['GUID']."','".$tableData[$i]['XING_MING']."','拼音','".jiami($tableData[$i]['PIN_YIN'])."') 
       ON DUPLICATE KEY UPDATE NEI_RONG = '".jiami($tableData[$i]['PIN_YIN'])."';
@@ -132,11 +152,11 @@ case 'save':
       /*姓名*/
       UPDATE txl_jichushuju SET XING_MING = '".$tableData[$i]['XING_MING']."' WHERE GUID = '".$tableData[$i]['GUID']."';
     ";
-    $con=DbOpen();
-    DbMultiSelect($con,$sql1);
-    DbClose($con);
+      $con = DbOpen();
+      DbMultiSelect($con, $sql1);
+      DbClose($con);
   }
-  
+
   echo 'ok';
 break;
 
@@ -147,18 +167,17 @@ case 'delete':
 
   //删除符合GUID的数据
   $sql1 = "DELETE FROM txl_jichushuju WHERE GUID IN ('".$GUID."')";
-  $con=DbOpen();
-  DbSelect($con,$sql1);
-  DbClose($con);
-  
-  //删除权限数据
-  $sql2 = "DELETE FROM txl_guid_quanxian WHERE GUID IN ('".$GUID."')";
-  $con=DbOpen();
-  DbSelect($con,$sql2);
-  
-  echo 'ok';
+  $con = DbOpen();
+  DbSelect($con, $sql1);
   DbClose($con);
 
+  //删除权限数据
+  $sql2 = "DELETE FROM txl_guid_quanxian WHERE GUID IN ('".$GUID."')";
+  $con = DbOpen();
+  DbSelect($con, $sql2);
+
+  echo 'ok';
+  DbClose($con);
 
 break;
 
@@ -166,20 +185,20 @@ break;
 case 'zu':
   $guidArr = $_POST['guidArr'];  //获取guid数组
   $zutext = $_POST['zutext'];  //获取组数据
-  
+
   $GUID = implode('\',\'', $guidArr);  //guid数组转字符串
-  if($zutext!=''){
-    $ZU_ID = substr(explode('[',$zutext)[1], 0, -1);//字符串截取为组id
-  }else{
-    $ZU_ID = '';
+  if ($zutext != '') {
+      $ZU_ID = substr(explode('[', $zutext)[1], 0, -1); //字符串截取为组id
+  } else {
+      $ZU_ID = '';
   }
-  
+
   //修改符合GUID的数据
   $sql1 = "UPDATE txl_guid_quanxian SET ZU_ID = '".$ZU_ID."' WHERE GUID IN ('".$GUID."')";
-  $con=DbOpen();
-  DbSelect($con,$sql1);
+  $con = DbOpen();
+  DbSelect($con, $sql1);
   DbClose($con);
-  
+
   echo 'ok';
 
 break;
@@ -188,15 +207,15 @@ break;
 case 'quanxian':
   $guidArr = $_POST['guidArr'];  //获取guid数组
   $QUAN_XIAN = $_POST['switchStat'];  //获取权限
-  
+
   $GUID = implode('\',\'', $guidArr);  //guid数组转字符串
-  
+
   //修改符合GUID的数据
   $sql1 = "UPDATE txl_guid_quanxian SET QUAN_XIAN = '".$QUAN_XIAN."' WHERE GUID IN ('".$GUID."')";
-  $con=DbOpen();
-  DbSelect($con,$sql1);
+  $con = DbOpen();
+  DbSelect($con, $sql1);
   DbClose($con);
-  
+
   echo 'ok';
 
 break;
@@ -208,43 +227,37 @@ case 'export':
 
   //删除符合GUID的数据
   $sql1 = "select * FROM txl_jichushuju WHERE GUID IN ('".$GUID."') ORDER BY GUID ASC";
-  $con=DbOpen();
-  $result = DbSelect($con,$sql1);
+  $con = DbOpen();
+  $result = DbSelect($con, $sql1);
 
   $i = 0;
   $res = [];
   while ($row = mysqli_fetch_array($result)) {
-    $res[$i] = array (
-      'GUID' => $row['GUID'],
+      $res[$i] = [
+      'GUID'      => $row['GUID'],
       'XING_MING' => $row['XING_MING'],
-      'XIANG_MU' => $row['XIANG_MU'],
-      'NEI_RONG' => jiemi($row['NEI_RONG'])
-    );
-    $i++;
+      'XIANG_MU'  => $row['XIANG_MU'],
+      'NEI_RONG'  => jiemi($row['NEI_RONG']),
+    ];
+      $i++;
   }
-  
+
   $j = 0;
   $data = [];
-  for($i=0;$i<count($res);$i++){
+  for ($i = 0; $i < count($res); $i++) {
+      if ($i > 0 && $res[$i]['GUID'] != $res[$i - 1]['GUID']) {
+          $j++;
+      }
 
-    if($i>0&&$res[$i]['GUID']!=$res[$i-1]['GUID']){
-      $j++;
-    }
-    
-    $data[$j]['姓名'] = $res[$i]['XING_MING'];  //返回姓名
-    if($res[$i]['XIANG_MU']!='拼音'){//不返回拼音
+      $data[$j]['姓名'] = $res[$i]['XING_MING'];  //返回姓名
+    if ($res[$i]['XIANG_MU'] != '拼音') {//不返回拼音
       $data[$j][$res[$i]['XIANG_MU']] = $res[$i]['NEI_RONG'];  //返回数据
     }
-    
-    
-
   }
   $responce = new stdClass();
-  $responce ->data = $data;
+  $responce->data = $data;
   echo json_encode($responce);
   DbClose($con);
 
-
 break;
 }
-?>

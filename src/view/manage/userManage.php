@@ -1,24 +1,23 @@
 <?php
-$view='manage';
-$page='userManage';
+$view = 'manage';
+$page = 'userManage';
 
-require_once $_SERVER ['DOCUMENT_ROOT'].'/src/nav.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/src/nav.php';
 
-if($_SESSION['USER_TYPE']=='1'){
-  header("Location:http://".$_SERVER ['HTTP_HOST']);
-  exit;
+if ($_SESSION['USER_TYPE'] == '1') {
+    header('Location:http://'.$_SERVER['HTTP_HOST']);
+    exit;
 }
 
-require_once $_SERVER ['DOCUMENT_ROOT'].'/src/view.php';
-
+require_once $_SERVER['DOCUMENT_ROOT'].'/src/view.php';
 
 ?>
-<script src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/jquery.nicescroll.min.js"></script>
-<link rel="stylesheet" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/view/<?php echo $view.'/'.$page.'.css';?>">
+<script src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/jquery.nicescroll.min.js"></script>
+<link rel="stylesheet" href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/view/<?php echo $view.'/'.$page.'.css'; ?>">
 
 <div class="layui-body">
   <div class="layui-row mianbao">
-    <a href="<?php $_SERVER ['DOCUMENT_ROOT']?>/manage"><span lang="管理"></span></a>
+    <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/manage"><span lang="管理"></span></a>
     <span class="layui-icon">&#xe602;</span>
     <a href="javascript:;"><span lang="系统管理"></span></a>
     <span class="layui-icon">&#xe602;</span>
@@ -44,9 +43,9 @@ require_once $_SERVER ['DOCUMENT_ROOT'].'/src/view.php';
 
 
 <script type="text/javascript">
-$("a[id='<?php echo $page;?>']").parent().addClass('layui-this');
+$("a[id='<?php echo $page; ?>']").parent().addClass('layui-this');
 //初始化语言
-initLang('<?php echo $page;?>',''+langNow+'');
+initLang('<?php echo $page; ?>',''+langNow+'');
 langPages.push('<?php echo $page;?>');
 
 //定义页面全局变量

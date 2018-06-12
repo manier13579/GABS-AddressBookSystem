@@ -1,6 +1,8 @@
 <?php
 session_start();
-if(!isset($_SESSION['USER_ID'])){header("Location:/account");}
+if (!isset($_SESSION['USER_ID'])) {
+    header('Location:/account');
+}
 require_once dirname(__FILE__).'/common/path.php';    //获取路径设置
 
 ?>
@@ -30,7 +32,7 @@ require_once dirname(__FILE__).'/common/path.php';    //获取路径设置
       <li class="layui-nav-item" id="index"><a href="<?php $rootpath ?>/"><span lang="首页"></span></a></li>
       <li class="layui-nav-item" id="manage"><a href="<?php $rootpath ?>/manage"><span lang="管理"></span></a></li>
       <li class="layui-nav-item topbar-user">
-        <a href=""><i class="layui-icon">&#xe612;</i><?php echo $_SESSION['USER_NAME'];?></a>
+        <a href=""><i class="layui-icon">&#xe612;</i><?php echo $_SESSION['USER_NAME']; ?></a>
         <dl class="layui-nav-child">
           <dd><a href="<?php $rootpath ?>/manage/changePass"><span lang="更改密码"></span></a></dd>
           <dd><a id="exit"><span lang="退出"></span></a></dd>
@@ -84,10 +86,10 @@ $("a[id='exit']").click(function(){
 
 var langPages = ['nav'];
 var langNow = '<?php 
-if(!isset($_SESSION['lang'])){
-  echo 'CN';
-}else{
-  echo $_SESSION['lang'];
+if (!isset($_SESSION['lang'])) {
+    echo 'CN';
+} else {
+    echo $_SESSION['lang'];
 }
 ?>';
 

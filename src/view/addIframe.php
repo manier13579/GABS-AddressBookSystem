@@ -1,12 +1,12 @@
 <?php 
 session_start();
 ?>
-<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/jquery-1.12.0.min.js"></script>
-<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/layui/layui.js"></script>
-<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/common.js"></script>
-<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/pinyin.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/layui/css/layui.css"/>
-<link rel="stylesheet" type="text/css" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/view/addIframe.css"/>
+<script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/layui/layui.js"></script>
+<script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/common.js"></script>
+<script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/pinyin.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/layui/css/layui.css"/>
+<link rel="stylesheet" type="text/css" href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/view/addIframe.css"/>
 
 <div class="wrap">
   <form class="layui-form layui-form-pane" onsubmit="return false">
@@ -95,7 +95,7 @@ layui.use('form', function(){
   var form = layui.form;
   
   //初始化语言
-  initLang('addIframe','<?php echo $_SESSION['lang'];?>');
+  initLang('addIframe','<?php echo $_SESSION['lang']; ?>');
   function initLang(pageName,lang){
     ajax=$.ajax({
       url:rootpath+"/src/controller/lang_controller.php",

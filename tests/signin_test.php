@@ -1,33 +1,36 @@
 <?php
+
 require_once $rootpath.'/src/class/signin_class.php';
 
 use PHPUnit\Framework\TestCase;
-class signinTest extends TestCase {
-  public function testLoginSuccess() {
-    $expected = 'admin';
 
-    $userid = 'admin';
-    $password = 'c3284d0f94606de1fd2af172aba15bf3';
-    $lang = 'CN';
-    
-    $sign = new signin_class;
-    $_SERVER['REMOTE_ADDR']='127.0.0.1';
-    $actual = $sign->signin($userid,$password,$lang);
+class signinTest extends TestCase
+{
+    public function testLoginSuccess()
+    {
+        $expected = 'admin';
 
-    $this->assertEquals($expected,$actual);
-  }
+        $userid = 'admin';
+        $password = 'c3284d0f94606de1fd2af172aba15bf3';
+        $lang = 'CN';
 
-  function testLoginFail() {
-    $expected = 'warning';
+        $sign = new signin_class();
+        $_SERVER['REMOTE_ADDR'] = '127.0.0.1';
+        $actual = $sign->signin($userid, $password, $lang);
 
-    $userid = '11111';
-    $password = '11111';
-    $lang = 'CN';
+        $this->assertEquals($expected, $actual);
+    }
 
-    $sign = new signin_class;
-    $actual = $sign->signin($userid,$password,$lang);
-    $this->assertEquals($expected,$actual);
-  }
+    public function testLoginFail()
+    {
+        $expected = 'warning';
+
+        $userid = '11111';
+        $password = '11111';
+        $lang = 'CN';
+
+        $sign = new signin_class();
+        $actual = $sign->signin($userid, $password, $lang);
+        $this->assertEquals($expected, $actual);
+    }
 }
-
-?>

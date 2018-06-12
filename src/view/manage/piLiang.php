@@ -1,17 +1,17 @@
 <?php
-$view='manage';
-$page='piLiang';
+$view = 'manage';
+$page = 'piLiang';
 
-require_once $_SERVER ['DOCUMENT_ROOT'].'/src/nav.php';
-require_once $_SERVER ['DOCUMENT_ROOT'].'/src/view.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/src/nav.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/src/view.php';
 ?>
-<script src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/jquery.nicescroll.min.js"></script>
-<script src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/xlsx.full.min.js"></script>
-<link rel="stylesheet" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/view/<?php echo $view.'/'.$page.'.css';?>">
+<script src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/jquery.nicescroll.min.js"></script>
+<script src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/xlsx.full.min.js"></script>
+<link rel="stylesheet" href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/view/<?php echo $view.'/'.$page.'.css'; ?>">
 
 <div class="layui-body">
   <div class="layui-row mianbao">
-    <a href="<?php $_SERVER ['DOCUMENT_ROOT']?>/manage"><span lang="管理"></span></a>
+    <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/manage"><span lang="管理"></span></a>
     <span class="layui-icon">&#xe602;</span>
     <a href="javascript:;"><span lang="通讯录管理"></span></a>
     <span class="layui-icon">&#xe602;</span>
@@ -28,8 +28,8 @@ require_once $_SERVER ['DOCUMENT_ROOT'].'/src/view.php';
               <button class="layui-btn" id="quanxian"><span lang="批量修改权限"></span></button>
               <button class="layui-btn layui-btn-danger" id="del"><span lang="批量删除"></span></button>
               <?php 
-                if($_SESSION['USER_TYPE']=='2'){
-                  echo '<button class="layui-btn layui-btn-warm" id="export"><span lang="批量导出"></span></button>';
+                if ($_SESSION['USER_TYPE'] == '2') {
+                    echo '<button class="layui-btn layui-btn-warm" id="export"><span lang="批量导出"></span></button>';
                 }
             ?>
             </div>
@@ -47,9 +47,9 @@ require_once $_SERVER ['DOCUMENT_ROOT'].'/src/view.php';
 
 
 <script type="text/javascript">
-$("a[id='<?php echo $page;?>']").parent().addClass('layui-this');
+$("a[id='<?php echo $page; ?>']").parent().addClass('layui-this');
 //初始化语言
-initLang('<?php echo $page;?>',''+langNow+'');
+initLang('<?php echo $page; ?>',''+langNow+'');
 langPages.push('<?php echo $page;?>');
 
 //定义页面全局变量

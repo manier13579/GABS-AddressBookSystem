@@ -1,6 +1,5 @@
 {
-  "require": {
-    "satooshi/php-coveralls":"*",
-    "phpunit/phpunit": "*"
+  "require-dev": {
+    "satooshi/php-coveralls":"*"
   }
 }

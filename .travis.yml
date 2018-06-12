@@ -18,5 +18,5 @@ script:
   - phpunit -c phpunit.xml   #custom test command to make sure CLI args don't break the test
   
 after_script:  
-  - travis_retry php vendor/bin/php-coveralls -v
+  - vendor/bin/php-coveralls -v --exclude-no-stmt
   

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/css/view.css">
+<link rel="stylesheet" href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/css/view.css">
 <div class="layui-side layui-bg-black">
   <div class="layui-side-scroll">
     <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
@@ -17,8 +17,8 @@
         </dl>
       </li>
       <?php 
-        if($_SESSION['USER_TYPE']=='2'){
-          echo '
+        if ($_SESSION['USER_TYPE'] == '2') {
+            echo '
             <li class="layui-nav-item layui-nav-itemed">
               <a class="side-title" href="javascript:;"><span lang="系统管理"></span></a>
               <dl class="layui-nav-child">
@@ -28,7 +28,6 @@
               </dl>
             </li>
           ';
-        
         }
       ?>
 

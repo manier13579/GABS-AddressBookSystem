@@ -1,11 +1,11 @@
 <?php 
 session_start();
 ?>
-<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/jquery-1.12.0.min.js"></script>
-<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/layui/layui.js"></script>
-<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/common.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/layui/css/layui.css"/>
-<link rel="stylesheet" type="text/css" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/view/manage/piLiangQuanxianIframe.css"/>
+<script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/layui/layui.js"></script>
+<script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/common.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/layui/css/layui.css"/>
+<link rel="stylesheet" type="text/css" href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/view/manage/piLiangQuanxianIframe.css"/>
 
 <div class="wrap">
   <div class="zu-wrap">
@@ -30,7 +30,7 @@ layui.use('form', function(){
   var form = layui.form;
   //初始化语言
   
-  initLang('piLiangQuanxianIframe','<?php echo $_SESSION['lang'];?>');
+  initLang('piLiangQuanxianIframe','<?php echo $_SESSION['lang']; ?>');
   function initLang(pageName,lang){
     ajax=$.ajax({
       url:rootpath+"/src/controller/lang_controller.php",

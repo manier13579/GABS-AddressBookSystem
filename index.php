@@ -298,7 +298,7 @@ layui.use(['table', 'form','element'], function(){
 
 <!--模板引擎1：显示权限-->
 <script type="text/html" id="template1">
-{{#  if(d.USER_ID=='<?php echo $_SESSION['USER_ID'];?>'){ }}
+{{#  if(d.USER_ID=='<?php echo $_SESSION['USER_ID']; ?>'){ }}
   <span class="layui-icon icon-blue">&#xe612;</span>
 {{#  } else if(d.QUAN_XIAN=='2'){ }}
   <span class="layui-icon icon-green">&#xe613;</span>

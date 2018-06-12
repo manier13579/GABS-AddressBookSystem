@@ -1,13 +1,13 @@
 <?php 
 session_start();
 ?>
-<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/jquery-1.12.0.min.js"></script>
-<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/layui/layui.js"></script>
-<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/common.js"></script>
-<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/pinyin.js"></script>
-<script type="text/javascript" src="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/clipboard.min.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/js/layui/css/layui.css"/>
-<link rel="stylesheet" type="text/css" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/view/editIframe.css"/>
+<script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/layui/layui.js"></script>
+<script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/common.js"></script>
+<script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/pinyin.js"></script>
+<script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/clipboard.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/layui/css/layui.css"/>
+<link rel="stylesheet" type="text/css" href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/view/editIframe.css"/>
 
 <div class="wrap">
   <form class="layui-form layui-form-pane" onsubmit="return false">
@@ -112,7 +112,7 @@ layui.use('form', function(){
         if(res!=''&&res!=null){
           res = JSON.parse(res);
           //如果数据权限是2或数据是本人的，启用编辑按钮
-          if(res.USER_ID =='<?php echo $_SESSION['USER_ID'];?>'||res.QUAN_XIAN ==2){
+          if(res.USER_ID =='<?php echo $_SESSION['USER_ID']; ?>'||res.QUAN_XIAN ==2){
             $('#cancel').before('<div class="layui-btn" id="edit"><span class="layui-icon">&#xe642;</span><span lang="启用编辑"></span></div>');
 
           }
@@ -165,7 +165,7 @@ layui.use('form', function(){
             
           }
           
-          initLang('editIframe','<?php echo $_SESSION['lang'];?>');
+          initLang('editIframe','<?php echo $_SESSION['lang']; ?>');
           
           //启用编辑按钮点击事件
           $('#edit').click(function(){
@@ -176,7 +176,7 @@ layui.use('form', function(){
             $('#cancel').before('<button class="layui-btn layui-btn-danger" id="delete"><span class="layui-icon">&#xe640;</span><span lang="删除"></span></button>');
 
             $('input').removeAttr('disabled');  //启用编辑
-            if(res.USER_ID !='<?php echo $_SESSION['USER_ID'];?>'){
+            if(res.USER_ID !='<?php echo $_SESSION['USER_ID']; ?>'){
               $('input[name="组"]').attr('readonly','readonly').unbind('click').css('opacity','0.5');  //禁用组修改
               $('.layui-form-switch').unbind('click').css('opacity','0.5');  //禁用权限修改
             }

@@ -1,14 +1,14 @@
 <?php
-$view='manage';
+$view = 'manage';
 
-require_once $_SERVER ['DOCUMENT_ROOT'].'/src/nav.php';
-require_once $_SERVER ['DOCUMENT_ROOT'].'/src/view.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/src/nav.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/src/view.php';
 ?>
-<link rel="stylesheet" href="<?php $_SERVER ['DOCUMENT_ROOT']?>/src/view/<?php echo $view.'.css';?>">
+<link rel="stylesheet" href="<?php $_SERVER['DOCUMENT_ROOT']?>/src/view/<?php echo $view.'.css'; ?>">
 
 <div class="layui-body">
   <div class="layui-row mianbao">
-    <a href="<?php $_SERVER ['DOCUMENT_ROOT']?>/plan"><span lang="生产计划"></span></a>
+    <a href="<?php $_SERVER['DOCUMENT_ROOT']?>/plan"><span lang="生产计划"></span></a>
     <span class="layui-icon">&#xe602;</span>   
     <a href="javascript:;"><span lang="首页"></span></a>
   </div>
@@ -48,7 +48,7 @@ require_once $_SERVER ['DOCUMENT_ROOT'].'/src/view.php';
 
 <script type="text/javascript">
 //初始化语言
-initLang('<?php echo $view;?>',''+langNow+'');
+initLang('<?php echo $view; ?>',''+langNow+'');
 langPages.push('<?php echo $view;?>');
 
 </script>

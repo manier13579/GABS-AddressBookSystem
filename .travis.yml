@@ -19,3 +19,4 @@ script:
   
 after_script:  
   - vendor/bin/php-coveralls -v
+  - bash <(curl -s https://codecov.io/bash)

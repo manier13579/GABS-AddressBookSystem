@@ -23,8 +23,8 @@
   <logging>
     <!-- target(report/html) 生成html 文件的目录-->
     <log type="coverage-html" target="report/html" charset="UTF-8" yui="true" highlight="false" lowUpperBound="35" highLowerBound="70"/>
-    <!-- target(report/coverage.xml) 生成xml的文件名-->
-    <log type="coverage-clover" target="report/coverage.xml"/>
+    <!-- target(report/clover.xml) 生成xml的文件名-->
+    <log type="coverage-clover" target="report/clover.xml"/>
   </logging>
 
 </phpunit>

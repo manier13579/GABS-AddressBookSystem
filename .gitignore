@@ -3,3 +3,4 @@ vendor
 sql/备份-20180607.sql
 sql/备份-20180608.sql
 composer.lock
+执行phpunit测试.bat

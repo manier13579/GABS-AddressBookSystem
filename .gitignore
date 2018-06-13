@@ -1,6 +1,5 @@
 build
 vendor
-sql/备份-20180607.sql
-sql/备份-20180608.sql
+tools
+sql/backup
 composer.lock
-执行phpunit测试.bat

@@ -50,5 +50,6 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/src/view.php';
 //初始化语言
 initLang('<?php echo $view; ?>',''+langNow+'');
 langPages.push('<?php echo $view;?>');
-
+//初始化焦点页面
+var idx = '<?php echo $view;?>';
 </script>

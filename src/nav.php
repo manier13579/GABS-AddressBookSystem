@@ -50,40 +50,6 @@ require_once dirname(__FILE__).'/common/path.php';    //获取路径设置
 </div>
 
 <script type="text/javascript">
-
-layui.use('element', function(){
-  var element = layui.element;
-
-});
-
-
-
-//鼠标经过用户名
-$(".topbar-user").mouseover(function(){
-	$(".topbar-user").css("color","#fff");
-	$(".topbar-user-menu").width($(".topbar-user").width());
-	$(".topbar-user-menu").show();
-	$(".topbar-user").mouseout(function(){
-    $(".topbar-user").removeAttr("style");
-		$(".topbar-user-menu").hide();
-	});
-});
-
-//禁止超链接被选中变白
-$("a").mousedown(function(){
-  return false;
-});
-
-$("a[id='exit']").click(function(){
-  ajax=$.ajax({
-    url:rootpath+"/src/controller/logout_controller.php",
-    async:true,
-    complete:function(){
-      parent.location.href = rootpath+'/account';
-    }
-	});
-});
-
 var langPages = ['nav'];
 var langNow = '<?php 
 if (!isset($_SESSION['lang'])) {
@@ -92,15 +58,6 @@ if (!isset($_SESSION['lang'])) {
     echo $_SESSION['lang'];
 }
 ?>';
-
-$(".lang").click(function(){
-  lang = $(this).attr("id");
-  langNow = lang;
-  for(i=0;i<langPages.length;i++){
-    initLang(langPages[i],lang);
-  }
-  
-});
 
 function initLang(pageName,lang){
   langName = $('#'+lang).html();
@@ -115,18 +72,64 @@ function initLang(pageName,lang){
       for(i=0;i<res.length;i++){
         $('span[lang="'+res[i]['XuHao']+'"]').html(res[i]['WenZi']);
       }
-     
     }
-	});
+  });
 }
-//初始化语言
-initLang('nav','<?php echo $_SESSION['lang'];?>');
 
+//鼠标经过用户名
+$(".topbar-user").mouseover(function(){
+  $(".topbar-user").css("color","#fff");
+  $(".topbar-user-menu").width($(".topbar-user").width());
+  $(".topbar-user-menu").show();
+  $(".topbar-user").mouseout(function(){
+    $(".topbar-user").removeAttr("style");
+    $(".topbar-user-menu").hide();
+  });
+});
+
+//禁止超链接被选中变白
+$("a").mousedown(function(){
+  return false;
+});
+
+$("a[id='exit']").click(function(){
+  ajax=$.ajax({
+    url:rootpath+"/src/controller/logout_controller.php",
+    async:true,
+    complete:function(){
+      parent.location.href = rootpath+'/account';
+    }
+  });
+});
+
+//语言切换事件
+$(".lang").click(function(){
+  lang = $(this).attr("id");
+  langNow = lang;
+  for(i=0;i<langPages.length;i++){
+    initLang(langPages[i],lang);
+  }
+  $('#'+idx).addClass("layui-this-manual");
+});
 
 //监听所有ajax请求
 var xhr = new XMLHttpRequest();
 window.addEventListener('ajaxReadyStateChange', function (e){
   if(e.detail.readyState==1){loadingDiv('load');}
   else if(e.detail.readyState==2){loadingDiv();}
+}); 
+
+  
+  
+  
+$(document).ready(function(){
+
+  layui.use('element', function(){
+    var element = layui.element;
+  });
+
+  //初始化语言
+  initLang('nav','<?php echo $_SESSION['lang'];?>');
+
 });
 </script>

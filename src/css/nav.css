@@ -167,3 +167,18 @@ th{
 .layui-side span{
   font-size:12px;
 }
+.layui-this-manual a span{
+  color:#fff;
+}
+.layui-this-manual::after{
+  content: '';
+  top: auto;
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  height: 5px;
+  background-color: #5FB878;
+  transition: all .2s;
+  -webkit-transition: all .2s;
+}

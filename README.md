@@ -3,9 +3,6 @@
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmanier13579%2FGABS-AddressBookSystem.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmanier13579%2FGABS-AddressBookSystem?ref=badge_shield)
 [![Coverage Status](https://coveralls.io/repos/github/manier13579/GABS-AddressBookSystem/badge.svg?branch=master)](https://coveralls.io/github/manier13579/GABS-AddressBookSystem?branch=master)
 [![BCH compliance](https://bettercodehub.com/edge/badge/manier13579/GABS-AddressBookSystem?branch=master)](https://bettercodehub.com/)
-<br>
-[![CircleCI](https://circleci.com/gh/manier13579/GABS-AddressBookSystem/tree/master.svg?style=svg)](https://circleci.com/gh/manier13579/GABS-AddressBookSystem/tree/master)
-[![codecov](https://codecov.io/gh/manier13579/GABS-AddressBookSystem/branch/master/graph/badge.svg)](https://codecov.io/gh/manier13579/GABS-AddressBookSystem)
 [![StyleCI](https://github.styleci.io/repos/136253474/shield?branch=master)](https://github.styleci.io/repos/136253474)
 
 * 基于web的通讯录系统，适用于企业或者个人使用。

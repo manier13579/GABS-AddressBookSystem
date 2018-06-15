@@ -141,7 +141,7 @@ $(document).ready(function(){
     //搜索输入监听 - 重新加载表格
     var inputStat = 0;
     
-    //搜索方法
+    //搜索函数
     function inputSearch(){
       inputStat += 1;
       //延迟执行，防止快速输入时频繁刷新表格
@@ -188,7 +188,7 @@ $(document).ready(function(){
     
     //监听输入事件
     $('.search-input input').bind('input propertychange', function() {
-      inputSearch();
+      inputSearch();    //执行搜索函数
     });  
     
     //添加联系人按钮点击事件

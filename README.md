@@ -38,6 +38,7 @@
 ## 部署方式
 #### 1、部署WAMP或LAMP环境
     PHP版本5.6及以上，需要 php_mysqli 扩展。
+    网站路由配置在.htaccess文件中，因此Apache需要开启对.htaccess的支持。
 #### 2、新建mysql数据库
     数据库名任意。
     例：mysql -e 'CREATE DATABASE gabs;'

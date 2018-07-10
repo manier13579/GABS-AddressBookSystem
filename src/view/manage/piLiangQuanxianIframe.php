@@ -36,7 +36,10 @@ layui.use('form', function(){
       url:rootpath+"/src/controller/lang_controller.php",
       type: 'post',
       async:true,
-      data: {pageName,lang},
+      data: {
+        pageName:pageName,
+        lang:lang
+      },
       success:function(res){
         res = JSON.parse(res);
         for(i=0;i<res.length;i++){
@@ -70,7 +73,11 @@ layui.use('form', function(){
           url:rootpath+"/src/controller/piLiang_controller.php",
           async:true,
           type: 'post',
-          data: {action,guidArr,switchStat},
+          data: {
+            action:action,
+            guidArr:guidArr,
+            switchStat:switchStat
+          },
           beforeSend:function(){
             loadingDiv('load');
           },

@@ -103,7 +103,10 @@ layui.use('form', function(){
       url:rootpath+"/src/controller/lang_controller.php",
       type: 'post',
       async:true,
-      data: {pageName,lang},
+      data: {
+        pageName:pageName,
+        lang:lang
+      },
       success:function(res){
         res = JSON.parse(res);
         for(i=0;i<res.length;i++){
@@ -162,7 +165,11 @@ function login(){
       url:rootpath+"/src/controller/signin_controller.php",
       async:false,
       type: 'post',
-      data: {userid,password,lang},
+      data: {
+        userid:userid,
+        password:password,
+        lang:lang
+      },
       success:function(msg){
         rec = msg.split(",");
         if(rec[0]==userid){

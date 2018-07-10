@@ -72,7 +72,10 @@ layui.use('table', function(){
       elem:'#table1',
       height: 542, //容器高度
       url: rootpath+'/src/controller/zuManage_controller.php',
-      where: {name:name,action:action},
+      where: {
+        name:name,
+        action:action
+      },
       even:true,
       size:'sm',
       method: 'post',
@@ -110,7 +113,10 @@ layui.use('table', function(){
     $.ajax({
       type:'POST',
       url:rootpath+'/src/controller/zuManage_controller.php',
-      data:{action,table1Data},
+      data:{
+        action:action,
+        table1Data:table1Data
+      },
       beforeSend:function(){
         loadingDiv('load');
       },
@@ -143,7 +149,10 @@ layui.use('table', function(){
           url:rootpath+"/src/controller/zuManage_controller.php",
           async:true,
           type: 'post',
-          data: {action,zuid},
+          data: {
+            action:action,
+            zuid:zuid
+          },
           beforeSend:function(){
             loadingDiv('load');
           },

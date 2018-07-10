@@ -70,7 +70,10 @@ layui.use('form', function(){
       url:rootpath+"/src/controller/lang_controller.php",
       type: 'post',
       async:true,
-      data: {pageName,lang},
+      data: {
+        pageName:pageName,
+        lang:lang
+      },
       success:function(res){
         res = JSON.parse(res);
         for(i=0;i<res.length;i++){
@@ -97,7 +100,15 @@ $('#add').click(function(){
       url:rootpath+"/src/controller/userManage_controller.php",
       async:true,
       type: 'post',
-      data: {action,userid,password,username,permission,email,group},
+      data: {
+        action:action,
+        userid:userid,
+        password:password,
+        username:username,
+        permission:permission,
+        email:email,
+        group:group
+      },
       beforeSend:function(){
         loadingDiv('load');
       },

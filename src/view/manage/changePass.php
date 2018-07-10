@@ -75,7 +75,10 @@ layui.use('form', function(){
         url:rootpath+"/src/controller/changePass_controller.php",
         async:true,
         type: 'post',
-        data: {oldp,newp},
+        data: {
+          oldp:oldp,
+          newp:newp
+        },
         beforeSend:function(){
           loadingDiv('load');
         },

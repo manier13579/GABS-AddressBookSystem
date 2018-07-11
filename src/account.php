@@ -93,45 +93,45 @@ session_start();
 </html>
 <script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/custom.js"></script>
 <script type="text/javascript">
-
-layui.use('form', function(){
-  var form = layui.form;
-  
-  form.on('select(lang)', function(data){
-    lang = data.value;
-    initLang('account',lang);
-  });
-
-  function initLang(pageName,lang){
-    ajax=$.ajax({
-      url:rootpath+"/src/controller/lang_controller.php",
-      type: 'post',
-      async:true,
-      data: {
-        pageName:pageName,
-        lang:lang
-      },
-      success:function(res){
-        res = JSON.parse(res);
-        for(i=0;i<res.length;i++){
-          $('span[lang="'+res[i]['XuHao']+'"]').html(res[i]['WenZi']);
-        }
-       
-      }
+$(document).ready(function(){
+  layui.use('form', function(){
+    var form = layui.form;
+    
+    form.on('select(lang)', function(data){
+      lang = data.value;
+      initLang('account',lang);
     });
-  }
-  var langNow = '<?php 
-  if (!isset($_SESSION['lang'])) {
-      echo 'CN';
-  } else {
-      echo $_SESSION['lang'];
-  }
-  ?>';
-  initLang('account',langNow);
-  $('select[name="lang"]').val(langNow);
-  form.render();
-});
 
+    function initLang(pageName,lang){
+      ajax=$.ajax({
+        url:rootpath+"/src/controller/lang_controller.php",
+        type: 'post',
+        async:true,
+        data: {
+          pageName:pageName,
+          lang:lang
+        },
+        success:function(res){
+          res = JSON.parse(res);
+          for(i=0;i<res.length;i++){
+            $('span[lang="'+res[i]['XuHao']+'"]').html(res[i]['WenZi']);
+          }
+         
+        }
+      });
+    }
+    var langNow = '<?php 
+    if (!isset($_SESSION['lang'])) {
+        echo 'CN';
+    } else {
+        echo $_SESSION['lang'];
+    }
+    ?>';
+    initLang('account',langNow);
+    $('select[name="lang"]').val(langNow);
+    form.render();
+  });
+});
 //全局回车事件
 $(function(){
 	document.onkeydown = function(e){

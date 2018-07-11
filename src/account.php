@@ -24,63 +24,67 @@ session_start();
 </div>
 
 <div class="wrap">
-	<div class="layui-row">
-		<div class="title"><span lang="通讯录"></span></div>
-		<div class="title2">Global Address Book System</div>
-    <div class="switch-wrap">
-      <div class="switch-button-wrap">
-        <span class="switch-button" id="signup"><span lang="注册"></span></span>
-        <span class="switch-button active" id="signin"><span lang="登录"></span></span>
-        <span class="switch-button-bottom"></span>
-      </div>
-    </div>
-	</div>
-	<div class="layui-row tab-signin">
-    <div class="group-inputs">
-      <div class="account input-wrapper">
-        <input name="userid" placeholder="账号 ID" type="text">
-      </div>
-      <div class="verification input-wrapper">
-        <input name="password" placeholder="密码 PASS" type="password">
-      </div>
-    </div>
-    <div class="signin-button"><span lang="登录"></span></div>
-    
-    
-	</div>
-  
-	<div class="layui-row tab-signup">
-    <div class="group-inputs">
-      <div class="account input-wrapper">
-        <input name="userid" placeholder="账号 ID" type="text">
-      </div>
-      <div class="verification input-wrapper">
-        <input name="password" placeholder="密码 PASS" type="password">
-      </div>
-      <div class="verification input-wrapper">
-        <input name="password2" placeholder="确认密码 CONFIRM PASS" type="password">
-      </div>
-    </div>
-    <div class="signup-button"><span lang="暂未开放"></span></div>
-	</div>
-  
-  
-  <div class="layui-row">
-    <div class="lang">
-      <div class="lang-title">Language</div>
-      <form class="layui-form" action="">
-        <div class="layui-form-item">
-            <select name="lang" lay-verify="required" lay-filter="lang">
-              <option value="CN">中文</option>
-              <option value="EN">English</option>
-            </select>
+  <div class="subwrap">
+    <div class="content">
+      <div class="layui-row">
+        <div class="title"><span lang="通讯录"></span></div>
+        <div class="title2">Global Address Book System</div>
+        <div class="switch-wrap">
+          <div class="switch-button-wrap">
+            <span class="switch-button" id="signup"><span lang="注册"></span></span>
+            <span class="switch-button active" id="signin"><span lang="登录"></span></span>
+            <span class="switch-button-bottom"></span>
+          </div>
         </div>
-      </form>
+      </div>
+      <div class="layui-row tab-signin">
+        <div class="group-inputs">
+          <div class="account input-wrapper">
+            <input name="userid" placeholder="账号 ID" type="text">
+          </div>
+          <div class="verification input-wrapper">
+            <input name="password" placeholder="密码 PASS" type="password">
+          </div>
+        </div>
+        <div class="signin-button"><span lang="登录"></span></div>
+        
+        
+      </div>
+      
+      <div class="layui-row tab-signup">
+        <div class="group-inputs">
+          <div class="account input-wrapper">
+            <input name="userid" placeholder="账号 ID" type="text">
+          </div>
+          <div class="verification input-wrapper">
+            <input name="password" placeholder="密码 PASS" type="password">
+          </div>
+          <div class="verification input-wrapper">
+            <input name="password2" placeholder="确认密码 CONFIRM PASS" type="password">
+          </div>
+        </div>
+        <div class="signup-button"><span lang="暂未开放"></span></div>
+      </div>
+      
+      
+      <div class="layui-row">
+        <div class="lang">
+          <div class="lang-title">Language</div>
+          <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <select name="lang" lay-verify="required" lay-filter="lang">
+                  <option value="CN">中文</option>
+                  <option value="EN">English</option>
+                </select>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="layui-row footer">
+        <hr class="layui-bg-gray">
+        <div class="footer-line">© 2018 MES1 Team License</div>
+      </div>
     </div>
-  </div>
-  <div class="layui-row footer">
-    <hr class="layui-bg-gray">
-    <div class="footer-line">© 2018 MES1 Team License</div>
   </div>
 </div>
 

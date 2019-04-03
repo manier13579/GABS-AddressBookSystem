@@ -104,7 +104,12 @@ layui.use('form', function(){
         url:rootpath+"/src/manage/langRegister",
         async:false,
         type: 'post',
-        data: {YeMianMing,CN,EN,action},
+        data: {
+          YeMianMing:YeMianMing,
+          CN:CN,
+          EN:EN,
+          action:action
+        },
         beforeSend:function(){
           loadingDiv('load');
         },

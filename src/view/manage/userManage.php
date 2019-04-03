@@ -69,7 +69,10 @@ layui.use('table', function(){
       elem:'#table1',
       height: 542, //容器高度
       url: rootpath+'/src/controller/userManage_controller.php',
-      where: {name:name,action:action},
+      where: {
+        name:name,
+        action:action
+      },
       even:true,
       size:'sm',
       method: 'post',
@@ -149,7 +152,10 @@ layui.use('table', function(){
           url:rootpath+"/src/controller/userManage_controller.php",
           async:true,
           type: 'post',
-          data: {action,userid},
+          data: {
+            action:action,
+            userid:userid
+          },
           beforeSend:function(){
             loadingDiv('load');
           },

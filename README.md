@@ -1,10 +1,12 @@
 # GABS-AddressBookSystem
 [![Build Status](https://travis-ci.org/manier13579/GABS-AddressBookSystem.svg?branch=master)](https://travis-ci.org/manier13579/GABS-AddressBookSystem)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmanier13579%2FGABS-AddressBookSystem.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmanier13579%2FGABS-AddressBookSystem?ref=badge_shield)
 [![Coverage Status](https://coveralls.io/repos/github/manier13579/GABS-AddressBookSystem/badge.svg?branch=master)](https://coveralls.io/github/manier13579/GABS-AddressBookSystem?branch=master)
-[![codecov](https://codecov.io/gh/manier13579/GABS-AddressBookSystem/branch/master/graph/badge.svg)](https://codecov.io/gh/manier13579/GABS-AddressBookSystem)
-[![CircleCI](https://circleci.com/gh/manier13579/GABS-AddressBookSystem/tree/master.svg?style=svg)](https://circleci.com/gh/manier13579/GABS-AddressBookSystem/tree/master)
+[![BCH compliance](https://bettercodehub.com/edge/badge/manier13579/GABS-AddressBookSystem?branch=master)](https://bettercodehub.com/)
 [![StyleCI](https://github.styleci.io/repos/136253474/shield?branch=master)](https://github.styleci.io/repos/136253474)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmanier13579%2FGABS-AddressBookSystem.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmanier13579%2FGABS-AddressBookSystem?ref=badge_shield)
+=======
+
 * 基于web的通讯录系统，适用于企业或者个人使用。
 * 目的在于快速获取联系人信息，或通过信息快速查找联系人、与他人共享联系人等。
 * 这个项目我本人一直在使用，同时也在当前公司部署，分享给公司员工使用，会一直更新。
@@ -28,7 +30,7 @@
 ![管理员用户后台预览](https://github.com/manier13579/GABS-AddressBookSystem/raw/master/src/images/readme5.png)  
 ## 项目特色
 * 简单易部署，只需要最基础的WAMP或LAMP环境
-* 前后端分离，前端尽量使用纯HTML+JS，通过AJAX与后端PHP接口交互，便于维护和技术升级。
+* 初步的前后端分离，未完全实现前后端分离，但是已经达到便于维护和技术升级的目标。
 * 极简代码结构，未使用任何后端框架，代码简单易懂、速度快。
 * 重要数据加密，用户登录信息、通讯录数据完全加密，不怕泄露。
 * 支持多语言，语言种类可轻松扩展。
@@ -38,6 +40,7 @@
 ## 部署方式
 #### 1、部署WAMP或LAMP环境
     PHP版本5.6及以上，需要 php_mysqli 扩展。
+    网站路由配置在.htaccess文件中，因此Apache需要开启对.htaccess的支持。
 #### 2、新建mysql数据库
     数据库名任意。
     例：mysql -e 'CREATE DATABASE gabs;'

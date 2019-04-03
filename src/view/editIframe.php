@@ -103,7 +103,10 @@ layui.use('form', function(){
       url:rootpath+"/src/controller/list_controller.php",
       async:false,
       type: 'post',
-      data: {action,GUID},
+      data: {
+        action:action,
+        GUID:GUID
+      },
       beforeSend:function(){
         loadingDiv('load');
       },
@@ -206,7 +209,10 @@ layui.use('form', function(){
       url:rootpath+"/src/controller/lang_controller.php",
       type: 'post',
       async:true,
-      data: {pageName,lang},
+      data: {
+        pageName:pageName,
+        lang:lang
+      },
       success:function(res){
         res = JSON.parse(res);
         for(i=0;i<res.length;i++){
@@ -242,7 +248,11 @@ layui.use('form', function(){
         url:rootpath+"/src/controller/list_controller.php",
         async:true,
         type: 'post',
-        data: {action,formData,GUID},
+        data: {
+          action:action,
+          formData:formData,
+          GUID:GUID
+        },
         beforeSend:function(){
           loadingDiv('load');
         },
@@ -271,7 +281,10 @@ layui.use('form', function(){
           url:rootpath+"/src/controller/list_controller.php",
           async:true,
           type: 'post',
-          data: {action,GUID},
+          data: {
+            action:action,
+            GUID:GUID
+          },
           beforeSend:function(){
             loadingDiv('load');
           },

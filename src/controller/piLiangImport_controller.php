@@ -22,7 +22,7 @@ case 'upload':
           break;
       } else {
           //生成1个GUID
-          $GUID = com_create_guid();
+          $GUID = getGUID();
           $GUID = str_replace('{', '', $GUID);
           $GUID = str_replace('}', '', $GUID);
 

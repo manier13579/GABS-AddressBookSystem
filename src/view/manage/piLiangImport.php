@@ -113,7 +113,10 @@ layui.use('table', function(){
           $.ajax({
             type:'POST',
             url:rootpath+'/src/controller/piLiangImport_controller.php',
-            data:{action,roa},
+            data:{
+              action:action,
+              roa:roa
+            },
             beforeSend:function(){
               loadingDiv('load');
             },

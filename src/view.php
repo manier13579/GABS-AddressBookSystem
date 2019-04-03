@@ -39,9 +39,10 @@
 <script type="text/javascript">
 $("#manage").addClass("layui-this");
 //初始化语言
-initLang('view',''+langNow+'');
-langPages.push('view');
-
+$(document).ready(function(){
+  initLang('view',''+langNow+'');
+  langPages.push('view');
+});
 layui.use('element', function(){
   var element = layui.element;
 });

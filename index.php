@@ -120,8 +120,7 @@ $(document).ready(function(){
         ]],
         done: function(res, curr, count){
           progressRandom(90,100);
-          
-          initLang('index',''+langNow+'');//初始化语言
+          initLang('index',''+langNow+'');    //初始化语言
           table1Data = res.data;
           //显示联系人数量
           $(".listCount").text(res.data.length);
@@ -133,6 +132,7 @@ $(document).ready(function(){
             cursorwidth:"3px",
             autohidemode:false
           });
+          inputSearch();    //根据搜索栏输入，筛选数据显示
         }
       }); 
      
@@ -140,7 +140,9 @@ $(document).ready(function(){
     
     //搜索输入监听 - 重新加载表格
     var inputStat = 0;
-    $('.search-input input').bind('input propertychange', function() {
+    
+    //搜索函数
+    function inputSearch(){
       inputStat += 1;
       //延迟执行，防止快速输入时频繁刷新表格
       setTimeout(function(){
@@ -182,7 +184,11 @@ $(document).ready(function(){
         }
         $(".layui-table-body").getNiceScroll().resize();  //重置滚动条
       },300);
-      
+    }
+    
+    //监听输入事件
+    $('.search-input input').bind('input propertychange', function() {
+      inputSearch();    //执行搜索函数
     });  
     
     //添加联系人按钮点击事件

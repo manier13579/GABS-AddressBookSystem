@@ -1,6 +1,5 @@
 # GABS-AddressBookSystem
 [![Build Status](https://travis-ci.org/manier13579/GABS-AddressBookSystem.svg?branch=master)](https://travis-ci.org/manier13579/GABS-AddressBookSystem)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmanier13579%2FGABS-AddressBookSystem.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmanier13579%2FGABS-AddressBookSystem?ref=badge_shield)
 [![Coverage Status](https://coveralls.io/repos/github/manier13579/GABS-AddressBookSystem/badge.svg?branch=master)](https://coveralls.io/github/manier13579/GABS-AddressBookSystem?branch=master)
 [![BCH compliance](https://bettercodehub.com/edge/badge/manier13579/GABS-AddressBookSystem?branch=master)](https://bettercodehub.com/)
 [![StyleCI](https://github.styleci.io/repos/136253474/shield?branch=master)](https://github.styleci.io/repos/136253474)

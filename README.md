@@ -4,6 +4,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/manier13579/GABS-AddressBookSystem/badge.svg?branch=master)](https://coveralls.io/github/manier13579/GABS-AddressBookSystem?branch=master)
 [![BCH compliance](https://bettercodehub.com/edge/badge/manier13579/GABS-AddressBookSystem?branch=master)](https://bettercodehub.com/)
 [![StyleCI](https://github.styleci.io/repos/136253474/shield?branch=master)](https://github.styleci.io/repos/136253474)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmanier13579%2FGABS-AddressBookSystem.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmanier13579%2FGABS-AddressBookSystem?ref=badge_shield)
+=======
 
 * 基于web的通讯录系统，适用于企业或者个人使用。
 * 目的在于快速获取联系人信息，或通过信息快速查找联系人、与他人共享联系人等。
@@ -69,3 +71,7 @@
 #### 批量导入通讯录时未完全导入，只导入了一部分
     由于php限制处理上传文件的最大值，解决方法：
     将php.ini中的 upload_max_filesize 和 post_max_size 的值同时调高，满足上传需要即可。
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmanier13579%2FGABS-AddressBookSystem.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmanier13579%2FGABS-AddressBookSystem?ref=badge_large)

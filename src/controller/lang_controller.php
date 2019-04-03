@@ -22,11 +22,11 @@ $stmt->bind_param('ss', $pageName, $lang);
 $stmt->execute();
 $result = $stmt->get_result();
 
-$responce = '';
+$response = array();
 $i = 0;
 
 while ($row = $result->fetch_assoc()) {
-    $responce[$i] = [
+    $response[$i] = [
     'XuHao' => $row['XU_HAO'],
     'WenZi' => $row['WEN_ZI'],
   ];

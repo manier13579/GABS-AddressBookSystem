@@ -4,6 +4,9 @@ php:
   - 5.6
   - 7.0
   
+services:
+  - mysql
+  
 install:
   - curl -s http://getcomposer.org/installer | php
   - composer install --prefer-dist --dev --no-interaction

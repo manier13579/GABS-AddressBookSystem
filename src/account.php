@@ -82,7 +82,7 @@ session_start();
       </div>
       <div class="layui-row footer">
         <hr class="layui-bg-gray">
-        <div class="footer-line">© 2018 MES1 Team License</div>
+        <div class="footer-line">© BING - MIT License</div>
       </div>
     </div>
   </div>

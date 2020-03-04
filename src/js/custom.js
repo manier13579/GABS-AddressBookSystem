@@ -11,10 +11,10 @@ $('body').on('click','.footer-line',function(){
     moveType: 1,  //拖拽模式，0或者1
     content: 
       '<div class="footer-contact">'+
-        '<span>架构师 | 发起人 : 张鹏</span>'+
-        '<span class="contact2">Architect : Zhang Peng</span>'+
-        '<span>前端 | 后端 | 数据库 : 王炳哲</span>'+
-        '<span class="contact2">Front-end | Back-end | Databace : Wang Bingzhe</span>'+
+        '<span>发起人 : 鹏</span>'+
+        '<span class="contact2">Architect : Peng</span>'+
+        '<span>设计 | 开发 : 炳</span>'+
+        '<span class="contact2">Front-end | Back-end | Databace : Bing</span>'+
         '<div class="logo"><span class="iconfont">&#xe654;</span></div>'+
       '</div>'
   });

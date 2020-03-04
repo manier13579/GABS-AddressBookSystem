@@ -31,10 +31,10 @@ while ($row = $result->fetch_assoc()) {
     'WenZi' => $row['WEN_ZI'],
   ];
 
-    $i++;
+  $i++;
 }
 
-echo json_encode($responce);
+echo json_encode($response);
 
 $stmt->close();
 DbClose($con);

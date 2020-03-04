@@ -20,7 +20,7 @@ session_start();
 
 <body>
 <div class="info">
-  <span>提示：仁和生产系统科的小伙伴可以直接登录，用户名与密码都是工号</span>
+  <span>提示：请联系管理员获取账号</span>
 </div>
 
 <div class="wrap">

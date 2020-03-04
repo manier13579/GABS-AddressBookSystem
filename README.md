@@ -14,7 +14,6 @@
 |Author|Bing Zhe|
 |---|---
 |E-mail|9061@163.com
-|WeChat|wbz9061
 
 ****
 

@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 
@@ -120,7 +120,7 @@ $(document).ready(function(){
         }
       });
     }
-    var langNow = '<?php 
+    var langNow = '<?php
     if (!isset($_SESSION['lang'])) {
         echo 'CN';
     } else {

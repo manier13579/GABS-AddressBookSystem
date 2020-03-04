@@ -16,7 +16,7 @@
           <dd><a href="/manage/changePass" id="changePass"><span lang="更改密码"></span></a></dd>
         </dl>
       </li>
-      <?php 
+      <?php
         if ($_SESSION['USER_TYPE'] == '2') {
             echo '
             <li class="layui-nav-item layui-nav-itemed">

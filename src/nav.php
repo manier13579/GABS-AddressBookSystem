@@ -51,7 +51,7 @@ require_once dirname(__FILE__).'/common/path.php';    //获取路径设置
 
 <script type="text/javascript">
 var langPages = ['nav'];
-var langNow = '<?php 
+var langNow = '<?php
 if (!isset($_SESSION['lang'])) {
     echo 'CN';
 } else {
@@ -132,7 +132,7 @@ $(document).ready(function(){
   });
 
   //初始化语言
-  initLang('nav','<?php echo $_SESSION['lang'];?>');
+  initLang('nav','<?php echo $_SESSION['lang']; ?>');
 
 });
 </script>

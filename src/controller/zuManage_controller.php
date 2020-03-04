@@ -22,10 +22,10 @@ case 'init':
   $res = [];
   while ($row = mysqli_fetch_array($result)) {
       $res[$i] = [
-      'ZU_ID'     => $row['ZU_ID'],
-      'PARENT_ID' => $row['PARENT_ID'],
-      'ZU_NAME'   => $row['ZU_NAME'],
-    ];
+          'ZU_ID'     => $row['ZU_ID'],
+          'PARENT_ID' => $row['PARENT_ID'],
+          'ZU_NAME'   => $row['ZU_NAME'],
+      ];
       $i++;
   }
 

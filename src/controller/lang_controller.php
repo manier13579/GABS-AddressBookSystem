@@ -22,16 +22,16 @@ $stmt->bind_param('ss', $pageName, $lang);
 $stmt->execute();
 $result = $stmt->get_result();
 
-$response = array();
+$response = [];
 $i = 0;
 
 while ($row = $result->fetch_assoc()) {
     $response[$i] = [
-    'XuHao' => $row['XU_HAO'],
-    'WenZi' => $row['WEN_ZI'],
-  ];
+        'XuHao' => $row['XU_HAO'],
+        'WenZi' => $row['WEN_ZI'],
+    ];
 
-  $i++;
+    $i++;
 }
 
 echo json_encode($response);

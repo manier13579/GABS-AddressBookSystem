@@ -45,14 +45,14 @@ class list_class
         $res = [];
         while ($row = mysqli_fetch_array($result)) {
             $res[$i] = [
-        'GUID'      => $row['GUID'],
-        'XING_MING' => $row['XING_MING'],
-        'XIANG_MU'  => $row['XIANG_MU'],
-        'NEI_RONG'  => jiemi($row['NEI_RONG']),
-        'USER_ID'   => $row['USER_ID'],
-        'QUAN_XIAN' => $row['QUAN_XIAN'],
+                'GUID'      => $row['GUID'],
+                'XING_MING' => $row['XING_MING'],
+                'XIANG_MU'  => $row['XIANG_MU'],
+                'NEI_RONG'  => jiemi($row['NEI_RONG']),
+                'USER_ID'   => $row['USER_ID'],
+                'QUAN_XIAN' => $row['QUAN_XIAN'],
 
-      ];
+            ];
             $i++;
         }
 
@@ -174,13 +174,13 @@ class list_class
         $result2 = DbSelect($con, $sql2);
 
         $i = 0;
-        
+
         while ($row = mysqli_fetch_array($result2)) {
             $res->data[$i] = [
-              'GUID'      => $row['GUID'],
-              'XING_MING' => $row['XING_MING'],
-              'XIANG_MU'  => $row['XIANG_MU'],
-              'NEI_RONG'  => jiemi($row['NEI_RONG']),
+                'GUID'      => $row['GUID'],
+                'XING_MING' => $row['XING_MING'],
+                'XIANG_MU'  => $row['XIANG_MU'],
+                'NEI_RONG'  => jiemi($row['NEI_RONG']),
             ];
             $i++;
         }

@@ -27,18 +27,18 @@ case 'init':
   $res = [];
   while ($row = mysqli_fetch_array($result)) {
       $res[$i] = [
-      'USER_ID'       => $row['USER_ID'],
-      'USER_NAME'     => $row['USER_NAME'],
-      'USER_TYPE'     => $row['USER_TYPE'],
-      'FAILED_LOGINS' => $row['FAILED_LOGINS'],
-      'LAST_IP'       => $row['LAST_IP'],
-      'JOIN_DATE'     => $row['JOIN_DATE'],
-      'LAST_LOGIN'    => $row['LAST_LOGIN'],
-      'EMAIL'         => $row['EMAIL'],
-      'ZU_ID'         => $row['ZU_ID'],
-      'ZU_NAME'       => $row['ZU_NAME'],
-      'ZU'            => $row['ZU_NAME'].' ['.$row['ZU_ID'].']',
-    ];
+          'USER_ID'       => $row['USER_ID'],
+          'USER_NAME'     => $row['USER_NAME'],
+          'USER_TYPE'     => $row['USER_TYPE'],
+          'FAILED_LOGINS' => $row['FAILED_LOGINS'],
+          'LAST_IP'       => $row['LAST_IP'],
+          'JOIN_DATE'     => $row['JOIN_DATE'],
+          'LAST_LOGIN'    => $row['LAST_LOGIN'],
+          'EMAIL'         => $row['EMAIL'],
+          'ZU_ID'         => $row['ZU_ID'],
+          'ZU_NAME'       => $row['ZU_NAME'],
+          'ZU'            => $row['ZU_NAME'].' ['.$row['ZU_ID'].']',
+      ];
       $i++;
   }
 

@@ -46,9 +46,9 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/src/view.php';
 $("a[id='<?php echo $page; ?>']").parent().addClass('layui-this');
 //初始化语言
 initLang('<?php echo $page; ?>',''+langNow+'');
-langPages.push('<?php echo $page;?>');
+langPages.push('<?php echo $page; ?>');
 //初始化焦点页面
-var idx = '<?php echo $view;?>';
+var idx = '<?php echo $view; ?>';
 
 //定义页面全局变量
 var guidArr = [],

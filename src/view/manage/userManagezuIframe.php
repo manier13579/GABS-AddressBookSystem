@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 <script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/jquery-1.12.0.min.js"></script>

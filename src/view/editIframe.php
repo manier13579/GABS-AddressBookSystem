@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 <script type="text/javascript" src="<?php $_SERVER['DOCUMENT_ROOT']?>/src/js/jquery-1.12.0.min.js"></script>
@@ -187,7 +187,7 @@ layui.use('form', function(){
             $('#addInfo').show();  //可以添加条目
             $('.addItem').append('<div class="delBtn"><span class="layui-icon">&#x1006;</span></div>');
             
-            initLang('editIframe','<?php echo $_SESSION['lang'];?>');
+            initLang('editIframe','<?php echo $_SESSION['lang']; ?>');
             
           });
           

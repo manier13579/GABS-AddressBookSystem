@@ -82,9 +82,9 @@ switch ($action) {
 $("a[id='<?php echo $page; ?>']").parent().addClass('layui-this');
 //初始化语言
 initLang('<?php echo $page; ?>',''+langNow+'');
-langPages.push('<?php echo $page;?>');
+langPages.push('<?php echo $page; ?>');
 //初始化焦点页面
-var idx = '<?php echo $view;?>';
+var idx = '<?php echo $view; ?>';
 
 layui.use('form', function(){
   $('#login').click(function(){

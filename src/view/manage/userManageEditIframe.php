@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 $userid = $_GET['userid'];
 $username = $_GET['username'];
@@ -76,7 +76,7 @@ layui.use('form', function(){
   var form = layui.form;
   //初始化语言
   
-  initLang('userManageIframe','<?php echo $_SESSION['lang'];?>');
+  initLang('userManageIframe','<?php echo $_SESSION['lang']; ?>');
   function initLang(pageName,lang){
     ajax=$.ajax({
       url:rootpath+"/src/controller/lang_controller.php",

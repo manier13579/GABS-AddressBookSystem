@@ -27,7 +27,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/src/view.php';
               <button class="layui-btn" id="zu"><span lang="批量修改组"></span></button>
               <button class="layui-btn" id="quanxian"><span lang="批量修改权限"></span></button>
               <button class="layui-btn layui-btn-danger" id="del"><span lang="批量删除"></span></button>
-              <?php 
+              <?php
                 if ($_SESSION['USER_TYPE'] == '2') {
                     echo '<button class="layui-btn layui-btn-warm" id="export"><span lang="批量导出"></span></button>';
                 }
@@ -50,9 +50,9 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/src/view.php';
 $("a[id='<?php echo $page; ?>']").parent().addClass('layui-this');
 //初始化语言
 initLang('<?php echo $page; ?>',''+langNow+'');
-langPages.push('<?php echo $page;?>');
+langPages.push('<?php echo $page; ?>');
 //初始化焦点页面
-var idx = '<?php echo $view;?>';
+var idx = '<?php echo $view; ?>';
 
 //定义页面全局变量
 var guidArr = [],
